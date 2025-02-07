@@ -2,30 +2,31 @@ import React from "react";
 
 const Testi = () => {
   return (
-    <div className="bg-[#0039a6] flex justify-center items-center min-h-screen px-4 py-10 border-[10px] border-white">
+    <div className="bg-[#0039a6] flex justify-center items-center min-h-screen px-4 py-10 border-[10px] rounded-3xl  border-white">
       <div className="lg:max-w-[1300px] w-full text-left">
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8">
+        <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white mb-8">
           What Our Clients Say
         </h1>
         <p className="text-lg sm:text-xl text-gray-200 mb-5">
-          Discover the experiences of those who have visited us!
+          Hear from those who trusted us with their ink stories!
         </p>
         <div className="w-20 md:w-24 h-1.5 bg-[#F7A600] mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              text: "An amazing experience and a must-visit destination for everyone! People of all ages will find joy and wonder at Pagdandi Ecofarms.",
-              name: "Priya Agarwal",
+              text: "Incredible artistry and attention to detail. The artists here truly understand how to bring your vision to life. My sleeve turned out better than I could have ever imagined!",
+              name: "Mr. Ramesh Nair",
             },
             {
-              text: "Heaven on Earth - These are the only words which can describe this place. Had our first social gathering here. The food is equally fresh and delicious.",
-              name: "BNI Indore (Fortune family)",
+              text: "Such a professional and clean studio. The atmosphere is welcoming, and they made me feel completely at ease during my first tattoo experience. Highly recommend!",
+              name: "Mrs. Sushma Naik",
             },
+
             {
-              text: "A perfect place to camp, meditate and watch stars! This place is absolute serene and pollution-free to top it all up.",
-              name: "Mr. Ramesh Naik",
+              text: "Outstanding custom work! They took my rough idea and transformed it into an absolute masterpiece. The healing process was smooth, and the aftercare advice was spot-on.",
+              name: "Rohit Sharma",
             },
           ].map((testimonial, index) => (
             <div key={index} className="bg-gray-100 px-5 sm:px-6 py-16 rounded-xl shadow-md border-4 border-black">
