@@ -30,9 +30,13 @@ const Navbar = () => {
               src="/images/logowhite.png"
               alt="Logo" 
               fill
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+             
               className="object-cover rounded-sm"
               priority
             />
+
+
           </Link>
 
           {/* Mobile Menu Button */}

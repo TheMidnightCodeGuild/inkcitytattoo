@@ -30,9 +30,11 @@ const Navbar = () => {
               src="/images/logo1.jpg"
               alt="Logo" 
               fill
+           
               className="object-cover rounded-sm"
               priority
             />
+
           </Link>
 
           {/* Mobile Menu Button */}

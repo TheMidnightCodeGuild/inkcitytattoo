@@ -1,47 +1,21 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { EffectFade, Autoplay } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
 
 const Studio = () => {
-  const studioImages = [
-    '/images/studio4.jpg',
-  
-  ]
-
   return (
     <div className="min-h-screen px-4 sm:px-8 md:px-20 py-16 sm:py-20 md:py-24 bg-[#ffffff] ">
       <div className="lg:max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
           <div className="relative h-[250px] xs:h-[300px] sm:h-[500px] md:h-[600px] rounded-lg overflow-hidden mt-6">
-            <Swiper
-              modules={[EffectFade, Autoplay]}
-              effect="fade"
-              fadeEffect={{ crossFade: true }}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-              className="w-full h-full"
-            >
-              {studioImages.map((image, index) => (
-                <SwiperSlide key={index}>
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={image}
-                      alt={`Studio Interior ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                    />
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
+            <Image
+              src="/images/studio4.jpg"
+              alt="Studio Interior"
+              fill
+              sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+              className="object-cover"
+              priority
+            />
           </div>
 
           <div className="text-gray-300 space-y-6 sm:space-y-8 md:space-y-10 mt-6 md:mt-5">

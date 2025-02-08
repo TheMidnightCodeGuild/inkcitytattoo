@@ -79,6 +79,7 @@ const Gallery = () => {
                   src={image}
                   alt={`Tattoo Gallery Image ${index + 1}`}
                   fill
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                   className="object-cover rounded-[15px] sm:rounded-[30px] "
                   priority={index <= 2}
                 />
@@ -91,4 +92,4 @@ const Gallery = () => {
   )
 }
 
-export default Gallery
+export default Gallery;
