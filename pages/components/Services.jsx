@@ -8,22 +8,22 @@ const Services = () => {
     {
       title: "Customized Tattoo",
       description: "Get a unique, personalized tattoo design created just for you. Our skilled artists will work closely with you to bring your vision to life, ensuring every detail matches your style and preferences. We specialize in various styles from traditional to contemporary.",
-      image: "/images/custom-tattoo.jpg"
+      image: "/images/customizedtattoo.jpg"
     },
     {
       title: "Tattoo Removal",
       description: "Professional and safe tattoo removal services using state-of-the-art laser technology. Our experienced technicians will guide you through the removal process, explaining each step and ensuring your comfort throughout the treatment sessions.",
-      image: "/images/tattoo-removal.jpg"
+      image: "/images/tattooremoval.jpg"
     },
     {
       title: "Tattoo Consultation",
       description: "Free consultation sessions with our expert artists to discuss your tattoo ideas, placement options, and design possibilities. We'll help you make informed decisions about size, style, and colors while addressing any concerns you may have.",
-      image: "/images/consultation.jpg"
+      image: "/images/tattoo-consultation.jpg"
     },
     {
       title: "Professional Piercings",
       description: "Safe and sterile body piercing services performed by certified professionals. We offer a wide range of piercing options and high-quality jewelry. Our team ensures proper aftercare guidance for optimal healing.",
-      image: "/images/piercings.jpg"
+      image: "/images/tattoo-piercing.jpg"
     },
     {
       title: "Body Art",
@@ -33,12 +33,13 @@ const Services = () => {
     {
       title: "Tattoo Aftercare",
       description: "Comprehensive aftercare services and products to ensure your tattoo heals perfectly. We provide detailed instructions and premium aftercare products to maintain the vibrancy and longevity of your tattoo.",
-      image: "/images/aftercare.jpg"
+      image: "/images/tattoo-aftercare.png"
     },
+
     {
       title: "Coverup Tattoo",
       description: "Expert coverup services to transform old or unwanted tattoos into beautiful new designs. Our artists specialize in creating coverup pieces that completely mask the original while delivering stunning results.",
-      image: "/images/coverup.jpg"
+      image: "/images/tattoo-coverup.jpg"
     },
     {
       title: "Tattoo Training",
@@ -68,7 +69,7 @@ const Services = () => {
             src="/images/servicesbanner.png"
             alt="Services Banner"
             fill
-            className="object-cover scale-[0.8] " 
+            className="object-cover " 
             priority
           />
         </div>

@@ -32,7 +32,7 @@ export default async function handler(req, res) {
 
     const mailOptions = {
       from: process.env.EMAIL_USERNAME,
-      to: "mayanktilwankar.dev@gmail.com",
+      to: "inkcitythetattoostudio22@gmail.com",
       subject: `New Enquiry from ${data.name}!`,
       html: `
         <h2>You have received a new enquiry</h2>

@@ -21,8 +21,8 @@ const Home = () => {
   return (
     <div className="h-[calc(var(--vh,1vh)*100)] overflow-hidden relative flex items-center px-2 xs:px-4 sm:px-8 md:px-20 py-4 xs:py-8 sm:py-12 md:py-16 bg-gradient-to-b from-gray-900 to-black border-r-[10px] border-l-[10px] border-b-[10px] border-[#ffffff] rounded-r-[30px] rounded-l-[30px] 
       rounded-b-[30px] rounded-t-[0px]">
-      <div className="absolute sm:top-[7%] top-[16%] left-1/2 transform -translate-x-1/2 z-20 w-[80%] sm:w-[350px]">
-        <Image src="/images/baba.png" alt="Ink City" width={400} height={200} className="mx-auto" />
+      <div className="absolute sm:top-[4%] top-[16%] left-1/2 transform -translate-x-1/2 z-20 w-[80%] sm:w-[450px]">
+        <Image src="/images/baba1.png" alt="Ink City" width={400} height={200} className="mx-auto" />
       </div>
       <div className="absolute inset-0 z-0">
 

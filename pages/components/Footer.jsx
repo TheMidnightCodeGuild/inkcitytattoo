@@ -115,7 +115,7 @@ const Footer = () => {
                         </svg>
                       </div>
                       <div className="ml-4">
-                        <p className="text-[15px] text-white/90 break-all">info@tattoo.com</p>
+                        <p className="text-[15px] text-white/90 break-all">inkcitythetattoostudio22@gmail.com</p>
                       </div>
                     </a>
                   </li>
