@@ -1,38 +1,31 @@
-import React from 'react'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import Home from './components/Home'
-import About from './components/About'
-import Gallery from './components/Gallery'
-import Studio from './components/Studio'
-import Socialmedia from './components/Socialmedia'
-import Loader from './components/Loader'
-import Testimonial from './components/Testimonial'
+import React from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import About from "./components/About";
+import Studio from "./components/Studio";
+import Socialmedia from "./components/Socialmedia";
+import Loader from "./components/Loader";
+import Testimonial from "./components/Testimonial";
+import Gallery from "./components/Gallerystudio";
 const index = () => {
   return (
-    <div>
-
-      <Loader/>
-
-      <Navbar/>
-
-
-      <Home/>
-      <About/>
-      <div id='gallery'>
-      <Gallery/>
+    <>
+      <Loader />
+      <Navbar />
+      <Home />
+      <About />
+      <div id="gallery">
+        <Gallery />
       </div>
-      <div id='studio'>
-      <Studio/>
+      <div id="studio">
+        <Studio />
       </div>
-      <Testimonial/>
-      <Footer/>
-      <Socialmedia/>
+      <Testimonial />
+      <Footer />
+      <Socialmedia />
+    </>
+  );
+};
 
-    </div>
-
-
-  )
-}
-
-export default index
+export default index;
