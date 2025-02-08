@@ -48,7 +48,7 @@ const Gallery = () => {
           loop={true}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 800,
+            delay: 2500,
             disableOnInteraction: false,
             pauseOnMouseEnter: false
           }}

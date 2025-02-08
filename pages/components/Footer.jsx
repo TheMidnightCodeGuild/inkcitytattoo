@@ -39,13 +39,11 @@ const Footer = () => {
               </div>
 
               <div className="flex mb-10 mt-8 justify-start gap-4">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="transform hover:scale-110 transition-all duration-300">
-                  <FaFacebookF className="w-6 h-6 text-white hover:text-[#F7A600] transition-colors duration-300" />
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="transform hover:scale-110 transition-all duration-300">
+              
+                <a href="https://youtube.com/@sahil_suryavanshi?si=IYGOcTNLBVoQxxQV" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="transform hover:scale-110 transition-all duration-300">
                   <FaYoutube className="w-6 h-6 text-white hover:text-[#F7A600] transition-colors duration-300" />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transform hover:scale-110 transition-all duration-300">
+                <a href="https://www.instagram.com/ink_city_the_tattoo_studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="transform hover:scale-110 transition-all duration-300">
                   <FaInstagram className="w-6 h-6 text-white hover:text-[#F7A600] transition-colors duration-300" />
                 </a>
               </div>
@@ -59,9 +57,11 @@ const Footer = () => {
                 <h4 className="text-white text-lg font-semibold mb-6 relative inline-block after:content-[''] after:absolute after:w-1/2 after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-8px]">Quick Links</h4>
                 <ul className="space-y-3">
                   <li><Link href="/" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Home</Link></li>
-                  <li><Link href="/about-us" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">About Us</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Services</Link></li>
-                  <li><Link href="/gallery" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Gallery</Link></li>
+                  <li><Link href="/components/About" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">About Us</Link></li>
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Services</Link></li>
+
+                  <li><Link href="/components/Gallery" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Gallery</Link></li>
+
                 </ul>
               </div>
             </div>
@@ -70,23 +70,30 @@ const Footer = () => {
               <div className="w-full mb-10">
                 <h4 className="text-white text-lg font-semibold mb-6 relative inline-block after:content-[''] after:absolute after:w-1/2 after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-8px]">Our Services</h4>
                 <ul className="space-y-3">
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Customized Tattoo</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Removal</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Consultation</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Piercings</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Body Art</Link></li>
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Customized Tattoo</Link></li>
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Removal</Link></li>
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Consultation</Link></li>
+
+
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Piercings</Link></li>
+
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Body Art</Link></li>
                 </ul>
               </div>
             </div>
+
 
             <div className="w-full sm:w-1/2 lg:w-1/3 px-4">
               <div className="w-full mb-10">
                 <h4 className="text-white text-lg font-semibold mb-6 relative inline-block after:content-[''] after:absolute after:w-1/2 after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-8px]">Other Services</h4>
                 <ul className="space-y-3">
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Aftercare</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Coverup Tattoo</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Training</Link></li>
-                  <li><Link href="/services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Temporary Tattoo</Link></li>
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Aftercare</Link></li>
+
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Coverup Tattoo</Link></li>
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Tattoo Training</Link></li>
+
+                  <li><Link href="/components/Services" className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300">Temporary Tattoo</Link></li>
+
                 </ul>
               </div>
             </div>
@@ -103,7 +110,7 @@ const Footer = () => {
                         </svg>
                       </div>
                       <div className="ml-4">
-                        <p className="text-[15px] text-white/90 font-medium">095163 62594</p>
+                        <p className="text-[15px] text-white/90 font-medium">+919516362594</p>
                       </div>
                     </a>
                   </li>
@@ -145,9 +152,9 @@ const Footer = () => {
           <p className="text-white font-semibold text-base mb-2">
             © {new Date().getFullYear()} <span className="font-medium">Ink City</span> - The Tattoo Studio. All rights reserved.
           </p>
-          <p className="text-black font-semibold text-base">
+          <p className="text-white font-semibold text-base">
 
-            Designed and Developed by <a href="https://www.noxalgo.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#F7A600] transition-colors duration-300">Noxalgo</a>
+            Designed and Developed by <a href="https://www.noxalgo.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#F7A600] transition-colors duration-300">Noxalgo LLP</a>
           </p>
         </div>
       </div>

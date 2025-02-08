@@ -58,24 +58,28 @@ const Navbar = () => {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center gap-10">
-            <Link href="/" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
+            <Link href="/" className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
               Home
             </Link>
-            <Link href="/components/Theexperience" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
+            <Link href="/components/Theexperience" className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
               The Experience
             </Link>
 
 
-            <Link href="#studio" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
+
+            <Link href="#studio" className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
               The Studio
             </Link>
-            <Link href="/components/Services" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
+
+            <Link href="/components/Services" className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
               Our Services
             </Link>
 
-            <Link href="/components/Blog" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
+
+            <Link href="/components/Blog" className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
               Blog
             </Link>
+
          
 
           </div>
@@ -83,9 +87,10 @@ const Navbar = () => {
           {/* Book Now Button - Desktop */}
           <Link 
             href="/components/Contact"
-            className="hidden md:block relative overflow-hidden group px-6 py-2 rounded-full uppercase text-sm tracking-widest"
+            className="hidden md:block relative overflow-hidden group px-6 py-2 rounded-full uppercase text-base font-bold tracking-widest"
           >
             <span className="absolute inset-0 bg-[#F7A600] transform transition-transform duration-300 group-hover:scale-x-0"></span>
+
 
             <span className="absolute inset-0 bg-black transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
             <span className="relative text-black group-hover:text-[#ffffff] transition-colors duration-300">

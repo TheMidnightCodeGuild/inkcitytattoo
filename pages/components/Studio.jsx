@@ -8,16 +8,15 @@ import 'swiper/css/effect-fade'
 
 const Studio = () => {
   const studioImages = [
-    '/images/studio1.jpg',
-    '/images/studio2.jpg',
-    '/images/studio3.jpg',
+    '/images/studio4.jpg',
+  
   ]
 
   return (
     <div className="min-h-screen px-4 sm:px-8 md:px-20 py-16 sm:py-20 md:py-24 bg-[#ffffff] ">
       <div className="lg:max-w-[1300px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
-          <div className="relative h-[250px] xs:h-[300px] sm:h-[500px] md:h-[600px] rounded-lg overflow-hidden">
+          <div className="relative h-[250px] xs:h-[300px] sm:h-[500px] md:h-[600px] rounded-lg overflow-hidden mt-6">
             <Swiper
               modules={[EffectFade, Autoplay]}
               effect="fade"
@@ -45,7 +44,7 @@ const Studio = () => {
             </Swiper>
           </div>
 
-          <div className="text-gray-300 space-y-6 sm:space-y-8 md:space-y-10 mt-6 md:mt-0">
+          <div className="text-gray-300 space-y-6 sm:space-y-8 md:space-y-10 mt-6 md:mt-5">
             <div className="text-center md:text-left">
               <p className="text-gray-900 uppercase tracking-wider mb-2 text-sm sm:text-base">Our Studio</p>
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#002D62] uppercase">
@@ -56,7 +55,7 @@ const Studio = () => {
                 Welcome to Ink City, where creativity knows no bounds. Our studio is more than just a place to get tattooed - it's a creative sanctuary where your ideas transform into stunning works of art.
               </p>
 
-              <div className="w-20 md:w-24 h-1 bg-[#E69500] mx-auto mt-10"></div>
+              <div className="w-20 md:w-24 h-1 bg-[#E69500] mx-auto mt-10 sm:mt-5"></div>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
