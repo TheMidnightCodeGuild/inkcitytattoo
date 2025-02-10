@@ -10,6 +10,7 @@ const Book = () => {
     phone: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,6 +21,7 @@ const Book = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch('/api/sendEmail', {
         method: 'POST',
@@ -50,6 +52,8 @@ const Book = () => {
     } catch (error) {
       console.error('Error:', error);
       alert('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -162,9 +166,14 @@ const Book = () => {
                   ></textarea>
                   <button
                     type="submit"
-                    className="w-full h-10 sm:h-12 text-white text-sm sm:text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-[#E69500] bg-[#4B9CD3] shadow-sm"
+                    disabled={isLoading}
+                    className="w-full h-10 sm:h-12 text-white text-sm sm:text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-[#E69500] bg-[#4B9CD3] shadow-sm flex items-center justify-center"
                   >
-                    Send Message
+                    {isLoading ? (
+                      <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    ) : (
+                      'Send Message'
+                    )}
                   </button>
                 </form>
               </div>

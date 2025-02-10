@@ -79,9 +79,9 @@ const Blog1 = () => {
                 Ready to transform your vision into a timeless piece of art? Contact InkCity Tattoo Studio - Ujjain's premier tattoo destination:
               </p>
               <ul className="mt-3">
-                <li>📞 Contact: +91 1234567890</li>
-                <li>📧 Email: info@inkcitytattoo.com</li>
-                <li>📍 Location: 123 Artistic Lane, Ujjain, Madhya Pradesh</li>
+                <li>📞 Contact: +9195163-62594</li>
+                <li>📧 Email: inkcitythetattoostudio22@gmail.com</li>
+                <li>📍 Location: Mini chopati ki gali, near gurudwara, Freeganj, Ujjain, Madhya Pradesh 456010</li>
                 <li>⏰ Hours: Monday-Saturday, 10:00 AM - 8:00 PM</li>
               </ul>
             </div>
