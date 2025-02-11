@@ -68,7 +68,7 @@ const Navbar = () => {
             </Link>
 
 
-            <Link href="/components/Studio" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
+            <Link href="/#studio" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
               The Studio
             </Link>
             <Link href="/components/Services" className="text-sm font-medium tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase">
@@ -116,7 +116,7 @@ const Navbar = () => {
             <Link href="/components/Theexperience" className="text-xs font-semibold tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black">
               The Experience
             </Link>
-            <Link href="/Studio" className="text-xs font-semibold  tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black">
+            <Link href="/#studio" className="text-xs font-semibold  tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black">
               The Studio
             </Link>
             <Link href="/components/Services" className="text-xs font-semibold tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black">
