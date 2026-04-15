@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import Navbar from './Navbar'
-import Footer from './Footer'
-import { db } from "@/lib/firebase"
-import { collection, getDocs, orderBy, query } from "firebase/firestore"
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import { db } from "@/lib/firebase";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,19 +14,19 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const blogsCollection = collection(db, 'blogs');
-        const q = query(blogsCollection, orderBy('createdAt', 'desc'));
+        const blogsCollection = collection(db, "blogs");
+        const q = query(blogsCollection, orderBy("createdAt", "desc"));
         const querySnapshot = await getDocs(q);
-        
-        const blogsData = querySnapshot.docs.map(doc => ({
+
+        const blogsData = querySnapshot.docs.map((doc) => ({
           id: doc.id,
-          ...doc.data()
+          ...doc.data(),
         }));
 
         setBlogs(blogsData);
       } catch (err) {
-        setError('Failed to fetch blogs');
-        console.error('Error fetching blogs:', err);
+        setError("Failed to fetch blogs");
+        console.error("Error fetching blogs:", err);
       } finally {
         setLoading(false);
       }
@@ -37,7 +37,7 @@ const Blog = () => {
 
   return (
     <>
-      <Navbar/>
+      <Header />
       <div className="min-h-screen bg-[#0039a6] text-white">
         {/* Banner Section */}
         <div className="relative h-[50vh] w-full">
@@ -66,9 +66,17 @@ const Blog = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">The Art of Tattooing</h3>
-                <p className="text-black mb-4">Discover the ancient history and modern techniques of tattoo artistry...</p>
-                <Link href="/blogs/Blog1" className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors">
+                <h3 className="text-xl font-semibold mb-2">
+                  The Art of Tattooing
+                </h3>
+                <p className="text-black mb-4">
+                  Discover the ancient history and modern techniques of tattoo
+                  artistry...
+                </p>
+                <Link
+                  href="/blogs/Blog1"
+                  className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors"
+                >
                   Read More
                 </Link>
               </div>
@@ -85,9 +93,17 @@ const Blog = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Choosing Your First Tattoo</h3>
-                <p className="text-black mb-4">Tips and considerations for selecting your perfect first tattoo design...</p>
-                <Link href="/blogs/Blog2" className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors">
+                <h3 className="text-xl font-semibold mb-2">
+                  Choosing Your First Tattoo
+                </h3>
+                <p className="text-black mb-4">
+                  Tips and considerations for selecting your perfect first
+                  tattoo design...
+                </p>
+                <Link
+                  href="/blogs/Blog2"
+                  className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors"
+                >
                   Read More
                 </Link>
               </div>
@@ -104,9 +120,17 @@ const Blog = () => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Tattoo Aftercare Guide</h3>
-                <p className="text-black mb-4">Essential tips for taking care of your new tattoo and ensuring proper healing...</p>
-                <Link href="/blogs/Blog3" className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors">
+                <h3 className="text-xl font-semibold mb-2">
+                  Tattoo Aftercare Guide
+                </h3>
+                <p className="text-black mb-4">
+                  Essential tips for taking care of your new tattoo and ensuring
+                  proper healing...
+                </p>
+                <Link
+                  href="/blogs/Blog3"
+                  className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors"
+                >
                   Read More
                 </Link>
               </div>
@@ -119,7 +143,10 @@ const Blog = () => {
           <div className="max-w-7xl mx-auto px-4 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(6)].map((_, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden animate-pulse">
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-lg overflow-hidden animate-pulse"
+                >
                   <div className="h-56 bg-gray-200"></div>
                   <div className="p-6">
                     <div className="h-7 bg-gray-200 rounded mb-4"></div>
@@ -138,12 +165,22 @@ const Blog = () => {
         ) : (
           <div className="max-w-7xl mx-auto px-4 py-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogs.map(blog => (
-                <div key={blog.id} className="bg-white rounded-lg overflow-hidden shadow-lg">
+              {blogs.map((blog) => (
+                <div
+                  key={blog.id}
+                  className="bg-white rounded-lg overflow-hidden shadow-lg"
+                >
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-black">{blog.title}</h3>
-                    <p className="text-gray-600 mb-4">{blog.content.substring(0, 150)}...</p>
-                    <Link href={`/blog/${blog.id}`} className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors">
+                    <h3 className="text-xl font-semibold mb-2 text-black">
+                      {blog.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4">
+                      {blog.content.substring(0, 150)}...
+                    </p>
+                    <Link
+                      href={`/blog/${blog.id}`}
+                      className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors"
+                    >
                       Read More
                     </Link>
                   </div>
@@ -153,9 +190,9 @@ const Blog = () => {
           </div>
         )}
       </div>
-      <Footer/>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Blog
+export default Blog;

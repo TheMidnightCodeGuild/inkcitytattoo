@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import Header from '../components/header'
+import Footer from '../components/footer'
 import Head from 'next/head'
 
 const Blog1 = () => {
@@ -17,7 +17,7 @@ const Blog1 = () => {
         <meta property="og:type" content="article" />
         <link rel="canonical" href="https://inkcity.com/blogs/Blog1" />
       </Head>
-      <Navbar />
+      <Header />
       <div className="min-h-screen bg-[#0039a6] text-white">
 
         {/* Hero Section */}

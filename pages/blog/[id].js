@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { db } from '@/lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
-import Navbar from '../components/Navbar';
+import Header from '../components/header';
 import Link from 'next/link';
 
 export default function SingleBlog() {
@@ -43,7 +43,7 @@ export default function SingleBlog() {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Navbar />
+        <Header />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
           <div className="animate-pulse space-y-4 sm:space-y-8">
             <div className="h-8 sm:h-12 bg-gray-200 rounded-lg w-3/4"></div>
@@ -63,7 +63,7 @@ export default function SingleBlog() {
   if (error) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Navbar />
+        <Header />
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] px-4">
           <div className="text-red-500 text-xl sm:text-3xl font-semibold mb-6 sm:mb-8 text-center">{error}</div>
           <Link 
@@ -81,7 +81,7 @@ export default function SingleBlog() {
 
   return (
     <div className="min-h-screen bg-gray-50 mt-16 sm:mt-20">
-      <Navbar />
+      <Header />
       <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
         <div className="mb-8 sm:mb-12">
           <Link 

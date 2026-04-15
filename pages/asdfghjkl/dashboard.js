@@ -28,32 +28,59 @@ try {
   ViewAllEntries = require("./viewAllEntries.jsx").default;
 } catch {}
 
+// Import categories.jsx
+let Categories = null;
+try {
+  Categories = require("./categories.jsx").default;
+} catch {}
+
 const COMPONENTS = [
   {
     key: "uploadBlogs",
     label: "Upload Blog",
-    component: <UploadBlogs />
+    component: <UploadBlogs />,
   },
   {
     key: "uploadImages",
     label: "Upload Images",
-    component: UploadImages ? <UploadImages /> : <div>UploadImages.jsx not found.</div>
+    component: UploadImages ? (
+      <UploadImages />
+    ) : (
+      <div>UploadImages.jsx not found.</div>
+    ),
+  },
+  {
+    key: "categories",
+    label: "Categories",
+    component: Categories ? (
+      <Categories />
+    ) : (
+      <div>categories.jsx not found.</div>
+    ),
   },
   {
     key: "viewAllBlogs",
     label: "View All Blogs",
-    component: <ViewAllBlogs />
+    component: <ViewAllBlogs />,
   },
   {
     key: "viewAllImages",
     label: "View All Images",
-    component: ViewAllImages ? <ViewAllImages /> : <div>viewAllImages.jsx not found.</div>
+    component: ViewAllImages ? (
+      <ViewAllImages />
+    ) : (
+      <div>viewAllImages.jsx not found.</div>
+    ),
   },
   {
     key: "viewAllEntries",
     label: "View All Entries",
-    component: ViewAllEntries ? <ViewAllEntries /> : <div>viewAllEntries.jsx not found.</div>
-  }
+    component: ViewAllEntries ? (
+      <ViewAllEntries />
+    ) : (
+      <div>viewAllEntries.jsx not found.</div>
+    ),
+  },
 ];
 
 export default function Dashboard() {
@@ -73,9 +100,11 @@ export default function Dashboard() {
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
             className={`px-6 py-2 rounded-full font-medium transition 
-              ${activeTab === tab.key
-                ? "bg-indigo-600 text-white shadow"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+              ${
+                activeTab === tab.key
+                  ? "bg-indigo-600 text-white shadow"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
           >
             {tab.label}
           </button>
