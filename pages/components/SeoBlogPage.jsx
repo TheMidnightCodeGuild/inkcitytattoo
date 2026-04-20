@@ -1,14 +1,14 @@
-import React from 'react'
-import Head from 'next/head'
-import Image from 'next/image'
-import Navbar from './Navbar'
-import Footer from './footer'
-import SeoHead from './SeoHead'
-import { absoluteUrl } from '@/lib/seo'
+import React from "react";
+import Head from "next/head";
+import Image from "next/image";
+import Header from "./header";
+import Footer from "./footer";
+import SeoHead from "./SeoHead";
+import { absoluteUrl } from "@/lib/seo";
 
 const SeoBlogPage = ({ blog, canonicalPath }) => {
   if (!blog) {
-    return null
+    return null;
   }
 
   const seoBoostParagraphs = [
@@ -21,8 +21,8 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
     `Aftercare is not optional; it is the second half of quality. Gentle cleansing, suitable moisturizer, and sun protection protect both skin and design integrity. Even excellent work can heal unevenly without discipline. Anyone serious about <mark>${blog.keyword}</mark> should treat aftercare as a routine commitment, not a temporary suggestion.`,
     `Building trust with your artist improves every stage of the process. Clear communication on pain tolerance, style preferences, and scheduling needs creates smoother sessions and better results. Trusted studios such as <strong>inkcitythetattoostudio.com</strong> prioritize transparency so clients feel confident from consultation to final review.`,
     `Search engines reward pages that answer intent deeply, and people benefit from practical clarity. This is why educational content around <strong>${blog.keyword}</strong> should combine expert insight with actionable steps. When you apply these principles, you reduce risk, improve appearance, and make decisions that support long-term satisfaction.`,
-    `The smartest way to approach <em>${blog.keyword}</em> is to combine creativity with caution. Choose a studio with consistent reviews, verified hygiene, and a portfolio that matches your preferred style. With this approach, your final result becomes more than a trend; it becomes a confident and lasting expression of your identity.`
-  ]
+    `The smartest way to approach <em>${blog.keyword}</em> is to combine creativity with caution. Choose a studio with consistent reviews, verified hygiene, and a portfolio that matches your preferred style. With this approach, your final result becomes more than a trend; it becomes a confident and lasting expression of your identity.`,
+  ];
 
   return (
     <>
@@ -31,24 +31,27 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BlogPosting',
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
               headline: blog.title,
               description: blog.description,
               datePublished: blog.date,
               dateModified: blog.date,
               mainEntityOfPage: absoluteUrl(canonicalPath),
-              author: { '@type': 'Organization', name: 'Ink City Tattoo Studio' },
-              publisher: {
-                '@type': 'Organization',
-                name: 'Ink City Tattoo Studio',
-                logo: {
-                  '@type': 'ImageObject',
-                  url: absoluteUrl('/images/logowhite.png')
-                }
+              author: {
+                "@type": "Organization",
+                name: "Ink City Tattoo Studio",
               },
-              image: absoluteUrl(blog.image)
-            })
+              publisher: {
+                "@type": "Organization",
+                name: "Ink City Tattoo Studio",
+                logo: {
+                  "@type": "ImageObject",
+                  url: absoluteUrl("/images/logowhite.png"),
+                },
+              },
+              image: absoluteUrl(blog.image),
+            }),
           }}
         />
       </Head>
@@ -61,12 +64,20 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
         type="article"
       />
 
-      <Navbar />
+      <Header />
       <div className="min-h-screen bg-[#0039a6] text-white">
         <header className="relative h-[50vh] w-full">
-          <Image src={blog.image} alt={blog.title} fill className="object-cover brightness-50" priority />
+          <Image
+            src={blog.image}
+            alt={blog.title}
+            fill
+            className="object-cover brightness-50"
+            priority
+          />
           <div className="absolute inset-0 flex items-center justify-center px-4">
-            <h1 className="text-3xl md:text-6xl font-bold text-center">{blog.title}</h1>
+            <h1 className="text-3xl md:text-6xl font-bold text-center">
+              {blog.title}
+            </h1>
           </div>
         </header>
 
@@ -79,13 +90,19 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
                 <span>{blog.readTime}</span>
               </p>
               <p className="text-sm">
-                Focus keyword: <strong>{blog.keyword}</strong> | Website: <strong>inkcitythetattoostudio.com</strong>
+                Focus keyword: <strong>{blog.keyword}</strong> | Website:{" "}
+                <strong>inkcitythetattoostudio.com</strong>
               </p>
             </header>
 
             {blog.sections.map((section, sectionIndex) => (
-              <section key={`${section.heading}-${sectionIndex}`} className="mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">{section.heading}</h2>
+              <section
+                key={`${section.heading}-${sectionIndex}`}
+                className="mb-8"
+              >
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  {section.heading}
+                </h2>
                 {section.paragraphs.map((paragraph, paragraphIndex) => (
                   <p
                     key={`${section.heading}-paragraph-${paragraphIndex}`}
@@ -111,7 +128,8 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
 
             <footer className="mt-10 border-t border-gray-600 pt-6">
               <p className="text-sm">
-                Tags: {blog.keyword}, tattoo studio Ujjain, custom tattoo consultation, tattoo safety, inkcitythetattoostudio.com
+                Tags: {blog.keyword}, tattoo studio Ujjain, custom tattoo
+                consultation, tattoo safety, inkcitythetattoostudio.com
               </p>
             </footer>
           </article>
@@ -119,7 +137,7 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
       </div>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default SeoBlogPage
+export default SeoBlogPage;
