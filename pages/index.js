@@ -102,14 +102,14 @@ const Index = () => {
       <Header />
       {/* home section */}
       <section className="relative overflow-hidden">
-        <div className="relative min-h-[80vh] lg:min-h-[100vh] mt-20">
+        <div className="relative min-h-[80vh] lg:min-h-[100vh] lg:mt-20 mt-10">
           {/* BACKGROUND IMAGE */}
           <Image
             src="/images/home-banner2.png"
             alt="Ink City Tattoo Studio Ujjain home banner showing creative custom tattoos"
             fill
             priority
-            className="object-fill object-center"
+            className="object-cover object-center"
           />
 
           {/* OVERLAY */}
