@@ -96,13 +96,13 @@ export default function UploadImages() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-200">
+    <div className="max-w-xl mx-auto p-4 sm:p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-200">
       <h2 className="text-indigo-600 font-manrope text-2xl font-semibold mb-6">
         Upload Image
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-indigo-400 transition-colors">
+        <div className="border-2 border-dashed border-gray-300 rounded-xl p-5 sm:p-8 text-center hover:border-indigo-400 transition-colors">
           <input
             type="file"
             name="image"
@@ -157,7 +157,7 @@ export default function UploadImages() {
             <p className="text-sm text-green-600 font-medium">
               Image uploaded successfully!
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
               <img
                 src={uploadedUrl}
                 alt="Uploaded"
@@ -167,7 +167,7 @@ export default function UploadImages() {
                 href={uploadedUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-indigo-600 hover:underline text-sm truncate max-w-[200px]"
+                className="text-indigo-600 hover:underline text-sm truncate max-w-full sm:max-w-[200px]"
               >
                 View image
               </a>
@@ -175,7 +175,7 @@ export default function UploadImages() {
           </div>
         )}
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="submit"
             disabled={!file || uploading}
@@ -187,7 +187,7 @@ export default function UploadImages() {
             type="button"
             onClick={handleReset}
             disabled={uploading}
-            className="px-6 h-12 text-gray-600 bg-gray-200 hover:bg-gray-300 rounded-full font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 h-12 text-gray-600 bg-gray-200 hover:bg-gray-300 rounded-full font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
           >
             Reset
           </button>

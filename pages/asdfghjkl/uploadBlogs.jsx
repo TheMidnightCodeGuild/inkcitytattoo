@@ -121,7 +121,7 @@ export default function UploadBlogs() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-200">
+    <div className="max-w-2xl mx-auto p-4 sm:p-6 bg-gray-50 rounded-2xl shadow-sm border border-gray-200">
       <h2 className="text-indigo-600 font-manrope text-2xl font-semibold mb-6">
         Upload Blog
       </h2>
@@ -176,7 +176,7 @@ export default function UploadBlogs() {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Cover Image
           </label>
-          <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-indigo-400 transition-colors bg-white">
+          <div className="border-2 border-dashed border-gray-300 rounded-xl p-4 sm:p-6 text-center hover:border-indigo-400 transition-colors bg-white">
             <input
               type="file"
               name="image"
@@ -245,7 +245,7 @@ export default function UploadBlogs() {
           </div>
         )}
 
-        <div className="flex gap-3">
+        <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="submit"
             disabled={uploading}
@@ -257,7 +257,7 @@ export default function UploadBlogs() {
             type="button"
             onClick={handleReset}
             disabled={uploading}
-            className="px-6 h-12 text-gray-600 bg-gray-200 hover:bg-gray-300 rounded-full font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 h-12 text-gray-600 bg-gray-200 hover:bg-gray-300 rounded-full font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
           >
             Reset
           </button>

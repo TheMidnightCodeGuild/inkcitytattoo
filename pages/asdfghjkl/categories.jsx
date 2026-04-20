@@ -133,13 +133,13 @@ const UploadImageToCategory = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto my-16">
+    <div className="max-w-5xl mx-auto my-8 sm:my-12 px-2">
       {!selectedCategory ? (
-        <div className="flex flex-wrap gap-4">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {CATEGORIES.map((category) => (
             <button
               key={category}
-              className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-800 text-white text-sm font-semibold shadow transition"
+              className="w-full px-3 sm:px-4 py-2 rounded bg-blue-600 hover:bg-blue-800 text-white text-xs sm:text-sm font-semibold shadow transition"
               onClick={() => handleCategoryClick(category)}
             >
               {category}
@@ -148,7 +148,7 @@ const UploadImageToCategory = () => {
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-6">
             <button
               onClick={() => {
                 setSelectedCategory(null);
@@ -159,25 +159,25 @@ const UploadImageToCategory = () => {
             >
               &larr; Go Back
             </button>
-            <span className="text-lg font-bold text-blue-700">
+            <span className="text-base sm:text-lg font-bold text-blue-700 break-words">
               {selectedCategory}
             </span>
           </div>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col items-center gap-4"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4"
             encType="multipart/form-data"
           >
             <input
               type="file"
               accept="image/*"
               onChange={handleFileChange}
-              className="border rounded px-3 py-2"
+              className="border rounded px-3 py-2 w-full sm:w-auto"
             />
             <button
               type="submit"
               disabled={isUploading || !selectedFile}
-              className="px-6 py-2 rounded bg-blue-700 hover:bg-blue-900 text-white font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+              className="px-6 py-2 rounded bg-blue-700 hover:bg-blue-900 text-white font-semibold disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto"
             >
               {isUploading ? "Uploading..." : "Upload Image"}
             </button>

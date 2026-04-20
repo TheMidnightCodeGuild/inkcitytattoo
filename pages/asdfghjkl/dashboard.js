@@ -88,14 +88,15 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="lg:max-w-[1300px] mx-auto py-10 px-4">
-      <h1 className="text-3xl font-bold mb-8 text-center">Dashboard</h1>
-      <div className="flex justify-center gap-6 mb-8">
+    <div className="lg:max-w-[1300px] mx-auto py-6 sm:py-10 px-3 sm:px-4">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">Dashboard</h1>
+      <div className="mb-6 sm:mb-8 overflow-x-auto">
+        <div className="flex sm:flex-wrap sm:justify-center gap-3 sm:gap-4 min-w-max sm:min-w-0 pb-1">
         {COMPONENTS.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`px-6 py-2 rounded-full font-medium transition 
+            className={`px-4 sm:px-6 py-2 rounded-full font-medium text-sm sm:text-base whitespace-nowrap transition 
               ${
                 activeTab === tab.key
                   ? "bg-indigo-600 text-white shadow"
@@ -105,9 +106,10 @@ export default function Dashboard() {
             {tab.label}
           </button>
         ))}
+        </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md min-h-[450px]">
+      <div className="bg-white p-3 sm:p-6 rounded-lg shadow-md min-h-[450px]">
         {renderComponent()}
       </div>
     </div>

@@ -105,13 +105,13 @@ export default function ViewAllEntries() {
         </div>
       )}
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols  gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {entries.map((entry) => (
           <div
             key={entry.entryId}
             className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5 flex flex-col gap-2"
           >
-            <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <div>
                 <p className="font-semibold text-gray-900">{entry.name}</p>
                 <p className="text-sm text-gray-500">{entry.email}</p>
