@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from "next/head";
 import Image from "next/image";
 import Loader from "./components/Loader";
 import Header from "./components/header";
@@ -7,6 +8,37 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import Link from "next/link";
+
+const SEO = () => (
+  <Head>
+    <title>
+      Ink City Tattoo Studio Ujjain - Custom Tattoos, Piercing &amp; Tattoo
+      Training in Ujjain, India
+    </title>
+    <meta
+      name="description"
+      content="Welcome to Ink City, Ujjain's trusted tattoo studio. Get custom tattoo designs, body piercing, safe tattoo removal, and hands-on tattoo training from experienced artists in Ujjain's most hygienic, creative environment. Book your appointment today."
+    />
+    <meta
+      name="keywords"
+      content="tattoo studio Ujjain, custom tattoo Ujjain, tattoo artist Ujjain, best tattoo Ujjain, tattoo removal, piercing, tattoo training, hygienic tattoo, female tattoo artist Ujjain"
+    />
+    <meta
+      property="og:title"
+      content="Ink City Tattoo Studio Ujjain - Where Art &amp; Precision Meet"
+    />
+    <meta
+      property="og:description"
+      content="Ujjain's leading tattoo studio for custom tattoos, piercings, and fine artistry. Experience the best in safety, creativity, and personal expression in Ujjain."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.inkcitytattoo.com/" />
+    <meta property="og:image" content="/images/home-banner.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href="https://www.inkcitytattoo.com/" />
+    <meta name="robots" content="index,follow" />
+  </Head>
+);
 
 const Index = () => {
   useEffect(() => {
@@ -75,6 +107,7 @@ const Index = () => {
 
   return (
     <>
+      <SEO />
       <Loader />
       <Header />
       {/* home section */}
@@ -83,10 +116,10 @@ const Index = () => {
           {/* BACKGROUND IMAGE */}
           <Image
             src="/images/home-banner.png"
-            alt="Tattoo Banner"
+            alt="Ink City Tattoo Studio Ujjain home banner showing creative custom tattoos"
             fill
             priority
-            className="object-fil object-center"
+            className="object-fill object-center"
           />
 
           {/* OVERLAY */}
@@ -101,7 +134,7 @@ const Index = () => {
               </h1>
 
               <p className="text-gray-300 mb-6">
-                Custom Tattoo Designs Crafted Just for You
+                Custom Tattoo Designs Crafted Just for You in Ujjain
               </p>
 
               <div className="flex gap-4 flex-wrap">
@@ -119,6 +152,10 @@ const Index = () => {
                   Contact Us
                 </Link>
               </div>
+              <p className="text-gray-300 text-base mt-4">
+                <span className="font-bold">Location:</span> Ujjain, Madhya
+                Pradesh, India
+              </p>
             </div>
           </div>
         </div>
@@ -129,33 +166,40 @@ const Index = () => {
             <div className="relative h-[300px] sm:h-[400px] md:h-[600px] rounded-lg overflow-hidden">
               <Image
                 src="/images/img1.jpg"
-                alt="Tattoo Studio"
+                alt="Inside Ink City Tattoo Studio Ujjain"
                 fill
                 className="w-full h-full object-cover rounded-[50px] md:rounded-[100px] border-[10px] border-[#002D62] scale-[0.90]"
                 priority
               />
             </div>
             <div className="text-gray-950 space-y-4 md:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002D62] text-center uppercase">
-                About Ink City
-              </h1>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002D62] text-center uppercase">
+                About Ink City Tattoo Studio, Ujjain
+              </h2>
               <div className="w-20 md:w-24 h-1 bg-[#E69500] mx-auto"></div>
               <p className="text-base md:text-lg text-center md:text-left">
-                Welcome to Ink City, where artistry meets passion. With over a
-                decade of experience in the tattoo industry, we&apos;ve built
-                our reputation on creativity, precision, and dedication to our
-                craft.
+                Welcome to Ink City, where artistry meets passion in the heart
+                of Ujjain. With over a decade of experience in the tattoo
+                industry, we&apos;ve built our reputation on creativity,
+                precision, and dedication to our craft.
               </p>
               <p className="text-base md:text-lg text-center md:text-left">
-                Our studio combines a sterile, professional environment with a
-                warm, welcoming atmosphere. We believe that getting a tattoo
-                should be a memorable experience, not just a service.
+                Our studio in Ujjain combines a sterile, professional
+                environment with a warm, welcoming atmosphere. We believe that
+                getting a tattoo should be a memorable experience, not just a
+                service.
               </p>
               <p className="text-base md:text-lg text-center md:text-left">
                 Every piece we create is custom-designed to tell your unique
                 story. Whether it&apos;s your first tattoo or your fiftieth,
-                we&apos;re here to bring your vision to life.
+                we&apos;re here to bring your vision to life right here in
+                Ujjain.
               </p>
+              <div className="text-center md:text-left">
+                <span className="block text-sm text-gray-700 font-bold mt-4">
+                  Studio Location: Ujjain, Madhya Pradesh
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -168,14 +212,14 @@ const Index = () => {
             <p className="uppercase font-brandon tracking-[0.2rem] text-sm text-theme3 font-semibold mb-2">
               Why Choose Us
             </p>
-            <h1 className="font-brandon lg:text-5xl lg:leading-[50px] text-4xl mb-4 font-bold text-theme3">
+            <h2 className="font-brandon lg:text-5xl lg:leading-[50px] text-4xl mb-4 font-bold text-theme3">
               Art That Stays With You Forever
-            </h1>
+            </h2>
             <p className="mb-4 text-theme3 text-lg leading-relaxed text-left lg:text-justify">
-              At INK CITY TATTOO STUDIO, we transform your ideas into powerful,
-              meaningful body art. Our artists blend creativity, precision, and
-              years of experience to craft tattoos that are unique, expressive,
-              and truly personal.
+              At INK CITY TATTOO STUDIO in Ujjain, we transform your ideas into
+              powerful, meaningful body art. Our artists blend creativity,
+              precision, and years of experience to craft tattoos that are
+              unique, expressive, and truly personal.
             </p>
             <p className="mb-4 text-theme3 text-lg leading-relaxed text-left lg:text-justify">
               From your first consultation to the final ink, we focus on
@@ -185,40 +229,45 @@ const Index = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full text-theme3">
               <div className="border border-theme3/20 px-4 py-3 rounded">
-                <h4 className="font-semibold tracking-wide">
+                <h3 className="font-semibold tracking-wide">
                   Custom Tattoo Designs
-                </h4>
+                </h3>
                 <p className="text-sm opacity-90">
-                  Unique artwork crafted just for you.
+                  Unique artwork crafted just for you in Ujjain.
                 </p>
               </div>
               <div className="border border-theme3/20 px-4 py-3 rounded">
-                <h4 className="font-semibold tracking-wide">
+                <h3 className="font-semibold tracking-wide">
                   High-Quality Ink and Equipment
-                </h4>
+                </h3>
                 <p className="text-sm opacity-90">
                   We use only the finest equipment and inks to ensure lasting
                   results.
                 </p>
               </div>
               <div className="border border-theme3/20 px-4 py-3 rounded">
-                <h4 className="font-semibold tracking-wide">
+                <h3 className="font-semibold tracking-wide">
                   Expert Artists and Consultation
-                </h4>
+                </h3>
                 <p className="text-sm opacity-90">
                   Our artists are trained to listen, understand, and create the
                   perfect tattoo for you.
                 </p>
               </div>
               <div className="border border-theme3/20 px-4 py-3 rounded">
-                <h4 className="font-semibold tracking-wide">
+                <h3 className="font-semibold tracking-wide">
                   Safe and Sterile Environment
-                </h4>
+                </h3>
                 <p className="text-sm opacity-90">
                   We maintain strict sterilization protocols and use only
                   single-use needles and tools.
                 </p>
               </div>
+            </div>
+            <div className="mt-6 text-left w-full">
+              <span className="font-bold bg-yellow-50 px-4 py-2 rounded text-theme3">
+                Studio Location:&nbsp;Ujjain, Madhya Pradesh
+              </span>
             </div>
           </div>
           {/* RIGHT : IMAGE */}
@@ -227,7 +276,7 @@ const Index = () => {
               <Image
                 className="w-[600px] h-[600px]"
                 src="/images/img4.jpg"
-                alt="tattoo artist work"
+                alt="Tattoo artist working in Ink City Studio Ujjain"
                 width={600}
                 height={600}
               />
@@ -280,7 +329,7 @@ const Index = () => {
                   <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[620px] rounded-lg overflow-hidden group">
                     <Image
                       src={image}
-                      alt={`Tattoo Gallery Image ${index + 1}`}
+                      alt={`Tattoo Gallery Image ${index + 1} - Custom tattoo work by Ink City Ujjain`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover rounded-[15px] sm:rounded-[30px]"
@@ -304,7 +353,7 @@ const Index = () => {
             <div className="relative h-[250px] xs:h-[300px] sm:h-[500px] md:h-[600px] rounded-lg overflow-hidden mt-6">
               <Image
                 src="/images/studio4.jpg"
-                alt="Studio Interior"
+                alt="Tattoo Studio Interior - Ink City Ujjain"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
@@ -317,24 +366,28 @@ const Index = () => {
                   Our Studio
                 </p>
                 <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-[#002D62] uppercase">
-                  Where Body Meets Art
+                  Where Body Meets Art in Ujjain
                 </h2>
                 <p className="text-gray-900 mt-4 sm:mt-6 text-sm sm:text-base">
                   Welcome to Ink City, where creativity knows no bounds. Our
                   studio is more than just a place to get tattooed - it&apos;s a
-                  creative sanctuary where your ideas transform into stunning
-                  works of art.
+                  creative sanctuary in Ujjain where your ideas transform into
+                  stunning works of art.
                 </p>
                 <div className="w-20 md:w-24 h-1 bg-[#E69500] mx-auto mt-10 sm:mt-5"></div>
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
                 <div className="w-12 h-12 flex-shrink-0 relative">
-                  <Image src="/images/ic-bird.svg" alt="Tattoo Quality" fill />
+                  <Image
+                    src="/images/ic-bird.svg"
+                    alt="Impeccable Tattoo Quality"
+                    fill
+                  />
                 </div>
                 <div>
-                  <h2 className="text-lg sm:text-xl font-semibold text-[#002D62] mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#002D62] mb-2">
                     IMPECCABLE TATTOO QUALITY
-                  </h2>
+                  </h3>
                   <p className="text-gray-950 text-sm sm:text-base">
                     Our commitment to excellence ensures that every tattoo we
                     create meets the highest standards of artistry and
@@ -344,12 +397,16 @@ const Index = () => {
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
                 <div className="w-12 h-12 flex-shrink-0 relative">
-                  <Image src="/images/ic-work.svg" alt="Hygiene" fill />
+                  <Image
+                    src="/images/ic-work.svg"
+                    alt="Top-Quality and Hygienic Equipment"
+                    fill
+                  />
                 </div>
                 <div>
-                  <h2 className="text-lg sm:text-xl font-semibold text-[#002D62] mb-2">
-                    USING THE BEST & HYGIENIC EQUIPMENT
-                  </h2>
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#002D62] mb-2">
+                    USING THE BEST &amp; HYGIENIC EQUIPMENT
+                  </h3>
                   <p className="text-gray-950 text-sm sm:text-base">
                     We maintain strict sterilization protocols and use only
                     top-quality, medical-grade equipment for your safety and
@@ -359,12 +416,16 @@ const Index = () => {
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
                 <div className="w-12 h-12 flex-shrink-0 relative">
-                  <Image src="/images/ic-hand.svg" alt="Artist" fill />
+                  <Image
+                    src="/images/ic-hand.svg"
+                    alt="Tattoo Artist Expertise"
+                    fill
+                  />
                 </div>
                 <div>
-                  <h2 className="text-lg sm:text-xl font-semibold text-[#002D62] mb-2">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[#002D62] mb-2">
                     EXPERIENCED ARTIST
-                  </h2>
+                  </h3>
                   <p className="text-gray-950 text-sm sm:text-base">
                     Our talented artists bring years of expertise and passion to
                     every project, ensuring your vision comes to life exactly as
@@ -384,10 +445,11 @@ const Index = () => {
               Beyond Ink
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002D62] uppercase">
-              Specialized Services
+              Specialized Services in Ujjain
             </h2>
             <p className="text-gray-700 mt-3 mb-6 sm:mb-8 text-base sm:text-lg max-w-2xl">
-              Expert care beyond tattoos for every stage of your journey.
+              Expert care beyond tattoos for every stage of your journey—now in
+              Ujjain.
             </p>
             <div className="w-20 md:w-24 h-1 bg-[#E69500] mb-8 sm:mb-10 mx-auto sm:mx-0"></div>
           </div>
@@ -396,19 +458,19 @@ const Index = () => {
             {[
               {
                 title: "Tattoo Removal",
-                desc: "Safe and effective sessions to lighten or fully remove unwanted tattoos.",
+                desc: "Safe and effective sessions to lighten or fully remove unwanted tattoos in Ujjain.",
               },
               {
                 title: "Piercing",
-                desc: "Professional body piercing with hygienic methods and premium-quality tools.",
+                desc: "Professional body piercing with hygienic methods and premium-quality tools, right in Ujjain.",
               },
               {
                 title: "Tattoo Training",
-                desc: "Hands-on training designed for aspiring artists to build real studio skills.",
+                desc: "Hands-on training in Ujjain designed for aspiring artists to build real studio skills.",
               },
               {
                 title: "Female Tattoo Artist",
-                desc: "Comfort-focused sessions with an experienced female artist for personalized work.",
+                desc: "Comfort-focused sessions in Ujjain with an experienced female artist for personalized work.",
               },
             ].map((service, index) => (
               <div
@@ -428,30 +490,35 @@ const Index = () => {
               </div>
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <span className="inline-block font-bold bg-yellow-100 px-6 py-1 rounded text-[#002D62]">
+              Ink City Tattoo Studio • Ujjain, Madhya Pradesh
+            </span>
+          </div>
         </div>
       </section>
 
       <section className="bg-[#F97316] flex justify-center items-center min-h-screen px-4 py-10 border-[10px] rounded-3xl  border-white">
         <div className="lg:max-w-[1300px] w-full text-left">
-          <h1 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white mb-8">
             What Our Clients Say
-          </h1>
+          </h2>
           <p className="text-lg sm:text-xl text-gray-200 mb-5">
-            Hear from those who trusted us with their ink stories!
+            Hear from those who trusted us with their ink stories in Ujjain!
           </p>
           <div className="w-20 md:w-24 h-1.5 bg-[#F7A600] mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                text: "Incredible artistry and attention to detail. The artists here truly understand how to bring your vision to life. My sleeve turned out better than I could have ever imagined!",
+                text: "Incredible artistry and attention to detail. The artists here in Ujjain truly understand how to bring your vision to life. My sleeve turned out better than I could have ever imagined!",
                 name: "Mr. Ramesh Nair",
               },
               {
-                text: "Such a professional and clean studio. The atmosphere is welcoming, and they made me feel completely at ease during my first tattoo experience. Highly recommend!",
+                text: "Such a professional and clean studio in Ujjain. The atmosphere is welcoming, and they made me feel completely at ease during my first tattoo experience. Highly recommend!",
                 name: "Mrs. Sushma Naik",
               },
               {
-                text: "Outstanding custom work! They took my rough idea and transformed it into an absolute masterpiece. The healing process was smooth, and the aftercare advice was spot-on.",
+                text: "Outstanding custom work! They took my rough idea and transformed it into an absolute masterpiece right here in Ujjain. The healing process was smooth, and the aftercare advice was spot-on.",
                 name: "Rohit Sharma",
               },
             ].map((testimonial, index) => (
@@ -464,7 +531,9 @@ const Index = () => {
                   fill="currentColor"
                   className="block w-6 h-6 sm:w-8 sm:h-8 text-black mb-4 mx-auto"
                   viewBox="0 0 975.036 975.036"
+                  aria-hidden="true"
                 >
+                  <title>Client Testimonial Quote</title>
                   <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
                 </svg>
                 <p className="text-sm sm:text-base leading-relaxed mb-2">
@@ -475,6 +544,11 @@ const Index = () => {
                 </p>
               </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <span className="inline-block font-bold bg-white text-[#F97316] px-6 py-1 rounded shadow">
+              Visit Us in Ujjain: Ink City Tattoo Studio
+            </span>
           </div>
         </div>
       </section>

@@ -103,17 +103,23 @@ const Header = () => {
               Home
             </Link>
             <Link
-              href="/components/aboutus"
+              href="/aboutus"
               className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase"
             >
               About Us
             </Link>
 
             <Link
-              href="/components/services"
+              href="/services"
               className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase"
             >
               Our Services
+            </Link>
+            <Link
+              href="/gallery"
+              className="text-base font-bold  tracking-widest relative after:content-[''] after:absolute after:w-full after:h-[2px] after:bg-[#F7A600] after:left-0 after:bottom-[-4px] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 uppercase"
+            >
+              Gallery
             </Link>
 
             <div className="relative group">

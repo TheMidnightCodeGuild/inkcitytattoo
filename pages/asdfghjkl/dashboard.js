@@ -9,16 +9,12 @@ import ViewAllBlogs from "./viewAllBlogs";
 // Optional: lazy load the `uploadImages.jsx` if it exists (or import it if present)
 let UploadImages = null;
 try {
-  // Try requiring - may fail if file does not exist
-  // eslint-disable-next-line import/no-unresolved
   UploadImages = require("./uploadImages").default;
 } catch {}
 
 // Import viewAllImages.jsx if it exists
 let ViewAllImages = null;
 try {
-  // Try requiring - may fail if file does not exist
-  // eslint-disable-next-line import/no-unresolved
   ViewAllImages = require("./viewAllImages").default;
 } catch {}
 
@@ -92,7 +88,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4">
+    <div className="lg:max-w-[1300px] mx-auto py-10 px-4">
       <h1 className="text-3xl font-bold mb-8 text-center">Dashboard</h1>
       <div className="flex justify-center gap-6 mb-8">
         {COMPONENTS.map((tab) => (

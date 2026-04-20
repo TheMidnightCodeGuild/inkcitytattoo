@@ -36,15 +36,30 @@ const GalleryPage = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-24">
-        <div className="max-w-[1300px] mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002D62] uppercase">
-            Gallery
-          </h1>
-          <p className="text-gray-700 mt-3 mb-8">
-            All images from Firebase Storage `images/` directory.
-          </p>
+      <section className="relative h-[45vh] sm:h-[55vh] md:h-[65vh] w-full overflow-hidden">
+        <Image
+          src="/images/servicesbanner.png"
+          alt="Ink City Tattoo Gallery Banner"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/55"></div>
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <div className="text-center text-white max-w-3xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase">
+              Gallery
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 mt-3">
+              Explore our latest tattoo work and artistic creations.
+            </p>
+            <div className="w-20 md:w-24 h-1 bg-[#F7A600] mx-auto mt-5"></div>
+          </div>
+        </div>
+      </section>
 
+      <main className="min-h-screen bg-white px-4 sm:px-8 md:px-12 lg:px-20 py-14 sm:py-16">
+        <div className="max-w-[1300px] mx-auto">
           {loading && <p className="text-gray-600">Loading images...</p>}
           {!loading && error && <p className="text-red-600">{error}</p>}
 
