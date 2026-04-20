@@ -9,16 +9,12 @@ import ViewAllBlogs from "./viewAllBlogs";
 // Optional: lazy load the `uploadImages.jsx` if it exists (or import it if present)
 let UploadImages = null;
 try {
-  // Try requiring - may fail if file does not exist
-  // eslint-disable-next-line import/no-unresolved
   UploadImages = require("./uploadImages").default;
 } catch {}
 
 // Import viewAllImages.jsx if it exists
 let ViewAllImages = null;
 try {
-  // Try requiring - may fail if file does not exist
-  // eslint-disable-next-line import/no-unresolved
   ViewAllImages = require("./viewAllImages").default;
 } catch {}
 
@@ -28,32 +24,59 @@ try {
   ViewAllEntries = require("./viewAllEntries.jsx").default;
 } catch {}
 
+// Import categories.jsx
+let Categories = null;
+try {
+  Categories = require("./categories.jsx").default;
+} catch {}
+
 const COMPONENTS = [
   {
     key: "uploadBlogs",
     label: "Upload Blog",
-    component: <UploadBlogs />
+    component: <UploadBlogs />,
   },
   {
     key: "uploadImages",
     label: "Upload Images",
-    component: UploadImages ? <UploadImages /> : <div>UploadImages.jsx not found.</div>
+    component: UploadImages ? (
+      <UploadImages />
+    ) : (
+      <div>UploadImages.jsx not found.</div>
+    ),
+  },
+  {
+    key: "categories",
+    label: "Categories",
+    component: Categories ? (
+      <Categories />
+    ) : (
+      <div>categories.jsx not found.</div>
+    ),
   },
   {
     key: "viewAllBlogs",
     label: "View All Blogs",
-    component: <ViewAllBlogs />
+    component: <ViewAllBlogs />,
   },
   {
     key: "viewAllImages",
     label: "View All Images",
-    component: ViewAllImages ? <ViewAllImages /> : <div>viewAllImages.jsx not found.</div>
+    component: ViewAllImages ? (
+      <ViewAllImages />
+    ) : (
+      <div>viewAllImages.jsx not found.</div>
+    ),
   },
   {
     key: "viewAllEntries",
     label: "View All Entries",
-    component: ViewAllEntries ? <ViewAllEntries /> : <div>viewAllEntries.jsx not found.</div>
-  }
+    component: ViewAllEntries ? (
+      <ViewAllEntries />
+    ) : (
+      <div>viewAllEntries.jsx not found.</div>
+    ),
+  },
 ];
 
 export default function Dashboard() {
@@ -65,7 +88,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4">
+    <div className="lg:max-w-[1300px] mx-auto py-10 px-4">
       <h1 className="text-3xl font-bold mb-8 text-center">Dashboard</h1>
       <div className="flex justify-center gap-6 mb-8">
         {COMPONENTS.map((tab) => (
@@ -73,9 +96,11 @@ export default function Dashboard() {
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
             className={`px-6 py-2 rounded-full font-medium transition 
-              ${activeTab === tab.key
-                ? "bg-indigo-600 text-white shadow"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+              ${
+                activeTab === tab.key
+                  ? "bg-indigo-600 text-white shadow"
+                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+              }`}
           >
             {tab.label}
           </button>

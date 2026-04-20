@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
-import Navbar from './Navbar'
-import Footer from './Footer'
+import Header from './components/header'
+import Footer from './components/footer'
 
 const Book = () => {
   const [formData, setFormData] = useState({
@@ -59,7 +59,7 @@ const Book = () => {
 
   return (
     < >
-      <Navbar/>
+      <Header />
       <>
         {/* Banner Section */}
         <div className="relative h-[50vh] sm:h-[40vh] md:h-[60vh] lg:h-[80vh] ">
@@ -181,7 +181,7 @@ const Book = () => {
           </div>
         </section>
       </>
-      <Footer/>
+      <Footer />
     </>
   )
 }
