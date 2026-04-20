@@ -105,7 +105,7 @@ const Index = () => {
         <div className="relative min-h-[80vh] lg:min-h-[100vh] mt-20">
           {/* BACKGROUND IMAGE */}
           <Image
-            src="/images/home-banner.png"
+            src="/images/home-banner2.png"
             alt="Ink City Tattoo Studio Ujjain home banner showing creative custom tattoos"
             fill
             priority
