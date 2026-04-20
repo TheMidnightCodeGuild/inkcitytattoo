@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import SeoHead from "./components/SeoHead";
 
 const GalleryPage = () => {
   const [images, setImages] = useState([]);
@@ -35,6 +36,13 @@ const GalleryPage = () => {
 
   return (
     <>
+      <SeoHead
+        title="Tattoo Gallery Ujjain - Ink City Tattoo Studio Portfolio"
+        description="View the latest tattoo gallery from Ink City Tattoo Studio, Ujjain. Explore custom tattoos, portrait tattoos, spiritual tattoos, and detailed body art work."
+        canonicalPath="/gallery"
+        keywords="tattoo gallery ujjain, tattoo portfolio, custom tattoo designs ujjain, realistic tattoo gallery"
+        image="/images/servicesbanner.png"
+      />
       <Header />
       <section className="relative h-[45vh] sm:h-[55vh] md:h-[65vh] w-full overflow-hidden">
         <Image

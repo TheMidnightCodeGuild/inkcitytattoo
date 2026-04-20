@@ -5,7 +5,7 @@ Disallow: /404
 Disallow: /500
 
 # Host
-Host: https://inkcitythetattoostudio.in
+Host: https://inkcitythetattoostudio.com
 
 # Sitemaps
-Sitemap: https://inkcitythetattoostudio.in/sitemap.xml
+Sitemap: https://inkcitythetattoostudio.com/sitemap.xml

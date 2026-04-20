@@ -4,6 +4,10 @@ import { db } from '@/lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import Header from '../components/header';
 import Link from 'next/link';
+import Head from 'next/head';
+import SeoHead from '../components/SeoHead';
+import Footer from '../components/footer';
+import { absoluteUrl } from '@/lib/seo';
 
 export default function SingleBlog() {
   const [blog, setBlog] = useState(null);
@@ -79,43 +83,84 @@ export default function SingleBlog() {
 
   if (!blog) return null;
 
+  const createdDate =
+    blog.createdAt?.toDate?.() ??
+    (blog.createdAt ? new Date(blog.createdAt) : new Date());
+  const blogDescription = `${String(blog.content || '').replace(/\s+/g, ' ').trim().slice(0, 155)}...`;
+
   return (
-    <div className="min-h-screen bg-gray-50 mt-16 sm:mt-20">
-      <Header />
-      <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
-        <div className="mb-8 sm:mb-12">
-          <Link 
-            href="/components/Blog" 
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mb-6 sm:mb-8 group transition-all duration-200 text-base sm:text-lg"
-          >
-            <span className="mr-2 sm:mr-3 transform group-hover:-translate-x-2 transition-transform duration-200">←</span>
-            Back to All Articles
-          </Link>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            {blog.title}
-          </h1>
-          <div className="flex items-center text-gray-600 text-base sm:text-lg">
-            <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-            </svg>
-            {new Date(blog.createdAt).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
+    <>
+      <SeoHead
+        title={`${blog.title} - Tattoo Blog`}
+        description={blogDescription}
+        canonicalPath={`/blog/${id}`}
+        keywords="tattoo blog, tattoo tips, tattoo care, tattoo studio ujjain"
+        type="article"
+      />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              headline: blog.title,
+              description: blogDescription,
+              datePublished: createdDate.toISOString(),
+              dateModified: createdDate.toISOString(),
+              mainEntityOfPage: absoluteUrl(`/blog/${id}`),
+              author: {
+                '@type': 'Organization',
+                name: 'Ink City Tattoo Studio'
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Ink City Tattoo Studio',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: absoluteUrl('/images/logowhite.png')
+                }
+              }
+            }),
+          }}
+        />
+      </Head>
+      <div className="min-h-screen bg-gray-50 mt-16 sm:mt-20">
+        <Header />
+        <article className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
+          <div className="mb-8 sm:mb-12">
+            <Link
+              href="/blogs"
+              className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mb-6 sm:mb-8 group transition-all duration-200 text-base sm:text-lg"
+            >
+              <span className="mr-2 sm:mr-3 transform group-hover:-translate-x-2 transition-transform duration-200">←</span>
+              Back to All Articles
+            </Link>
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              {blog.title}
+            </h1>
+            <div className="flex items-center text-gray-600 text-base sm:text-lg">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+              </svg>
+              {createdDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </div>
           </div>
-        </div>
 
-        <div className="prose prose-sm sm:prose-xl max-w-none">
-          {blog.content.split('\n').map((paragraph, index) => (
-            <p key={index} className="mb-4 sm:mb-8 text-gray-800 leading-relaxed text-base sm:text-lg md:text-xl">
-              {paragraph}
-            </p>
-          ))}
+          <div className="prose prose-sm sm:prose-xl max-w-none">
+            {blog.content.split('\n').map((paragraph, index) => (
+              <p key={index} className="mb-4 sm:mb-8 text-gray-800 leading-relaxed text-base sm:text-lg md:text-xl">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </article>
+        <Footer />
         </div>
-
-     
-      </article>
-    </div>
+    </>
   );
 }

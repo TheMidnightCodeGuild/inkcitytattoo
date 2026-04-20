@@ -182,21 +182,21 @@ const Header = () => {
               Home
             </Link>
             <Link
-              href="/components/Theexperience"
+              href="/aboutus"
               onClick={() => setIsMenuOpen(false)}
               className="text-xs font-semibold tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black"
             >
-              The Experience
+              About Us
             </Link>
             <Link
-              href="#studio"
+              href="/gallery"
               onClick={() => setIsMenuOpen(false)}
               className="text-xs font-semibold tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black"
             >
-              The Studio
+              Gallery
             </Link>
             <Link
-              href="/components/Services"
+              href="/services"
               onClick={() => setIsMenuOpen(false)}
               className="text-xs font-semibold tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black"
             >
@@ -223,7 +223,7 @@ const Header = () => {
               </div>
             </div>
             <Link
-              href="/components/Blog"
+              href="/blogs"
               onClick={() => setIsMenuOpen(false)}
               className="text-xs font-semibold tracking-widest uppercase px-2 py-3 hover:text-[#F7A600] border-b border-black"
             >
@@ -231,7 +231,7 @@ const Header = () => {
             </Link>
 
             <Link
-              href="/components/Contact"
+              href="/contactus"
               onClick={() => setIsMenuOpen(false)}
               className="bg-[#F7A600] text-black text-xs font-semibold tracking-widest px-6 py-2 rounded-full hover:bg-[#E69500] transition-all uppercase text-center mt-6 border border-black"
             >

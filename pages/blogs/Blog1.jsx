@@ -15,7 +15,7 @@ const Blog1 = () => {
         <meta property="og:description" content="Discover the art of tattooing at Ujjain's premier tattoo studio. Expert artists, custom designs, and highest safety standards." />
         <meta property="og:image" content="/images/img31.jpg" />
         <meta property="og:type" content="article" />
-        <link rel="canonical" href="https://inkcity.com/blogs/Blog1" />
+        <link rel="canonical" href="https://inkcitythetattoostudio.com/blogs/Blog1" />
       </Head>
       <Header />
       <div className="min-h-screen bg-[#0039a6] text-white">

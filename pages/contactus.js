@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Header from './components/header'
 import Footer from './components/footer'
+import Head from 'next/head'
+import SeoHead from './components/SeoHead'
+import { BUSINESS_INFO } from '@/lib/seo'
 
 const Book = () => {
   const [formData, setFormData] = useState({
@@ -59,6 +62,35 @@ const Book = () => {
 
   return (
     < >
+      <SeoHead
+        title="Contact Ink City Tattoo Studio Ujjain"
+        description="Contact Ink City Tattoo Studio in Ujjain for custom tattoos, piercing, tattoo training, and consultations. Call, email, or send us a message to book your appointment."
+        canonicalPath="/contactus"
+        keywords="contact tattoo studio ujjain, tattoo appointment ujjain, ink city contact"
+        image="/images/home.png"
+      />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ContactPage',
+              name: 'Contact Ink City Tattoo Studio',
+              mainEntity: {
+                '@type': 'TattooParlor',
+                name: BUSINESS_INFO.name,
+                telephone: BUSINESS_INFO.telephone,
+                email: BUSINESS_INFO.email,
+                address: {
+                  '@type': 'PostalAddress',
+                  ...BUSINESS_INFO.address
+                }
+              }
+            })
+          }}
+        />
+      </Head>
       <Header />
       <>
         {/* Banner Section */}

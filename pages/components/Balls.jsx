@@ -16,7 +16,7 @@ const Balls = () => {
               <br />
               <span className="text-yellow-300">you are!</span>
             </h2>
-            <Link href="/components/Contact">
+            <Link href="/contactus">
               <button className="relative overflow-hidden group px-8 py-3 rounded-full text-lg font-semibold">
                 <span className="absolute inset-0 bg-yellow-300 transform transition-transform duration-300 group-hover:scale-x-0"></span>
                 <span className="absolute inset-0 bg-black transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
