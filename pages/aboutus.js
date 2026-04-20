@@ -4,9 +4,17 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Image from "next/image";
 import Balls from "./components/Balls";
+import SeoHead from "./components/SeoHead";
 const Banner = () => {
   return (
     <>
+      <SeoHead
+        title="About Ink City Tattoo Studio Ujjain - Artists, Hygiene and Experience"
+        description="Learn about Ink City Tattoo Studio in Ujjain, our tattoo artists, studio hygiene standards, consultation process, and commitment to safe, high-quality body art."
+        canonicalPath="/aboutus"
+        keywords="about ink city tattoo studio, tattoo artists ujjain, hygienic tattoo studio, tattoo consultation ujjain"
+        image="/images/img6.jpg"
+      />
       <Header />
       <section className="relative min-h-screen bg-[#F7A600] overflow-hidden py-12">
         {/* Content section */}

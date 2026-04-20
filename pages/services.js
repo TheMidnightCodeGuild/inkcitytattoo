@@ -3,6 +3,7 @@ import Image from "next/image";
 import Navbar from "./components/header";
 import Footer from "./components/footer";
 import Header from "./components/header";
+import SeoHead from "./components/SeoHead";
 
 const Services = () => {
   const services = [
@@ -65,6 +66,13 @@ const Services = () => {
 
   return (
     <>
+      <SeoHead
+        title="Tattoo Services in Ujjain - Custom Tattoos, Piercing, Removal and Training"
+        description="Explore all services at Ink City Tattoo Studio in Ujjain, including customized tattoos, tattoo removal, piercing, cover-ups, tattoo training, temporary tattoos, and aftercare."
+        canonicalPath="/services"
+        keywords="tattoo services ujjain, custom tattoo, tattoo removal, piercing, tattoo training, temporary tattoo, coverup tattoo"
+        image="/images/servicesbanner.png"
+      />
       <Header />
 
       <section className="bg-white">

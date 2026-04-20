@@ -121,7 +121,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/components/About"
+                        href="/aboutus"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         About Us
@@ -129,7 +129,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Services
@@ -138,7 +138,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        href="/components/Gallery"
+                        href="/gallery"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Gallery
@@ -156,7 +156,7 @@ const Footer = () => {
                   <ul className="space-y-3">
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Customized Tattoo
@@ -164,7 +164,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Tattoo Removal
@@ -172,7 +172,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Tattoo Consultation
@@ -181,7 +181,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Piercings
@@ -190,7 +190,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Body Art
@@ -208,7 +208,7 @@ const Footer = () => {
                   <ul className="space-y-3">
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Tattoo Aftercare
@@ -217,7 +217,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Coverup Tattoo
@@ -225,7 +225,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Tattoo Training
@@ -234,7 +234,7 @@ const Footer = () => {
 
                     <li>
                       <Link
-                        href="/components/Services"
+                        href="/services"
                         className="inline-block text-[15px] text-gray-50 hover:text-[#F7A600] hover:translate-x-1 transition-all duration-300"
                       >
                         Temporary Tattoo

@@ -2,7 +2,9 @@ import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Navbar from './Navbar'
-import Footer from './Footer'
+import Footer from './footer'
+import SeoHead from './SeoHead'
+import { absoluteUrl } from '@/lib/seo'
 
 const SeoBlogPage = ({ blog, canonicalPath }) => {
   if (!blog) {
@@ -25,15 +27,39 @@ const SeoBlogPage = ({ blog, canonicalPath }) => {
   return (
     <>
       <Head>
-        <title>{blog.title} | InkCity Tattoo Studio</title>
-        <meta name="description" content={blog.description} />
-        <meta name="keywords" content={blog.keywords} />
-        <meta property="og:title" content={blog.title} />
-        <meta property="og:description" content={blog.description} />
-        <meta property="og:image" content={blog.image} />
-        <meta property="og:type" content="article" />
-        <link rel="canonical" href={`https://inkcitythetattoostudio.com${canonicalPath}`} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BlogPosting',
+              headline: blog.title,
+              description: blog.description,
+              datePublished: blog.date,
+              dateModified: blog.date,
+              mainEntityOfPage: absoluteUrl(canonicalPath),
+              author: { '@type': 'Organization', name: 'Ink City Tattoo Studio' },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Ink City Tattoo Studio',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: absoluteUrl('/images/logowhite.png')
+                }
+              },
+              image: absoluteUrl(blog.image)
+            })
+          }}
+        />
       </Head>
+      <SeoHead
+        title={blog.title}
+        description={blog.description}
+        keywords={blog.keywords}
+        canonicalPath={canonicalPath}
+        image={blog.image}
+        type="article"
+      />
 
       <Navbar />
       <div className="min-h-screen bg-[#0039a6] text-white">

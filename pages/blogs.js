@@ -5,6 +5,8 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import { db } from "@/lib/firebase";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import SeoHead from "./components/SeoHead";
+import { seoBlogs } from "@/content/seoBlogs";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -37,6 +39,13 @@ const Blog = () => {
 
   return (
     <>
+      <SeoHead
+        title="Tattoo Blog in Ujjain - Tattoo Care, Training, Removal and Design Tips"
+        description="Read Ink City Tattoo Studio blogs on tattoo removal, piercing, temporary tattoo ideas, tattoo training, aftercare, and expert tattoo guidance in Ujjain."
+        canonicalPath="/blogs"
+        keywords="tattoo blog ujjain, tattoo removal guide, piercing guide, tattoo training ujjain, temporary tattoo ideas, best tattoo in ujjain"
+        image="/images/img30.jpg"
+      />
       <Header />
       <div className="min-h-screen bg-[#0039a6] text-white">
         {/* Banner Section */}
@@ -135,6 +144,30 @@ const Blog = () => {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* SEO Blog Cards */}
+        <div className="max-w-7xl mx-auto px-4 pb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">Featured SEO Guides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Object.entries(seoBlogs).map(([key, blog]) => (
+              <div key={key} className="bg-white rounded-lg overflow-hidden border-2 border-black">
+                <div className="relative h-64">
+                  <Image src={blog.image} alt={blog.title} fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-black">{blog.title}</h3>
+                  <p className="text-black mb-4">{blog.description}</p>
+                  <Link
+                    href={`/blogs/${key.replace("blog", "Blog")}`}
+                    className="inline-block bg-[#F7A600] text-black px-4 py-2 rounded-full hover:bg-[#E69500] transition-colors"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

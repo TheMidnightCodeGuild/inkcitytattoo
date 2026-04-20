@@ -8,37 +8,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import Link from "next/link";
-
-const SEO = () => (
-  <Head>
-    <title>
-      Ink City Tattoo Studio Ujjain - Custom Tattoos, Piercing &amp; Tattoo
-      Training in Ujjain, India
-    </title>
-    <meta
-      name="description"
-      content="Welcome to Ink City, Ujjain's trusted tattoo studio. Get custom tattoo designs, body piercing, safe tattoo removal, and hands-on tattoo training from experienced artists in Ujjain's most hygienic, creative environment. Book your appointment today."
-    />
-    <meta
-      name="keywords"
-      content="tattoo studio Ujjain, custom tattoo Ujjain, tattoo artist Ujjain, best tattoo Ujjain, tattoo removal, piercing, tattoo training, hygienic tattoo, female tattoo artist Ujjain"
-    />
-    <meta
-      property="og:title"
-      content="Ink City Tattoo Studio Ujjain - Where Art &amp; Precision Meet"
-    />
-    <meta
-      property="og:description"
-      content="Ujjain's leading tattoo studio for custom tattoos, piercings, and fine artistry. Experience the best in safety, creativity, and personal expression in Ujjain."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.inkcitytattoo.com/" />
-    <meta property="og:image" content="/images/home-banner.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="canonical" href="https://www.inkcitytattoo.com/" />
-    <meta name="robots" content="index,follow" />
-  </Head>
-);
+import SeoHead from "./components/SeoHead";
+import { absoluteUrl } from "@/lib/seo";
 
 const Index = () => {
   useEffect(() => {
@@ -107,7 +78,26 @@ const Index = () => {
 
   return (
     <>
-      <SEO />
+      <SeoHead
+        title="Ink City Tattoo Studio Ujjain - Custom Tattoos, Piercing and Tattoo Training"
+        description="Welcome to Ink City, Ujjain's trusted tattoo studio. Get custom tattoo designs, body piercing, safe tattoo removal, and hands-on tattoo training from experienced artists."
+        canonicalPath="/"
+        keywords="tattoo studio Ujjain, custom tattoo Ujjain, tattoo artist Ujjain, best tattoo Ujjain, tattoo removal, piercing, tattoo training, female tattoo artist Ujjain"
+        image="/images/home-banner.png"
+      />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Ink City Tattoo Studio",
+              url: absoluteUrl("/"),
+            }),
+          }}
+        />
+      </Head>
       <Loader />
       <Header />
       {/* home section */}
