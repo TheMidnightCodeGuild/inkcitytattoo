@@ -153,7 +153,7 @@ const Header = () => {
 
           {/* Book Now Button - Desktop */}
           <Link
-            href="/components/Contact"
+            href="/contactus"
             className="hidden md:block relative overflow-hidden group px-6 py-2 rounded-full uppercase text-base font-bold tracking-widest"
           >
             <span className="absolute inset-0 bg-[#F7A600] transform transition-transform duration-300 group-hover:scale-x-0"></span>
