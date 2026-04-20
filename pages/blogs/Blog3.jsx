@@ -15,7 +15,7 @@ const Blog3 = () => {
         <meta property="og:description" content="Essential aftercare tips for your new tattoo. Expert advice from Ujjain's premier tattoo studio." />
         <meta property="og:image" content="/images/img16.jpg" />
         <meta property="og:type" content="article" />
-        <link rel="canonical" href="https://inkcity.com/blogs/Blog3" />
+        <link rel="canonical" href="https://inkcitythetattoostudio.com/blogs/Blog3" />
       </Head>
       <Navbar />
       <div className="min-h-screen bg-[#0039a6] text-white">

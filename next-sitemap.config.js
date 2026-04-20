@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: process.env.SITE_URL || 'https://inkcitythetattoostudio.in',
+    siteUrl: process.env.SITE_URL || 'https://inkcitythetattoostudio.com',
     generateRobotsTxt: true,
     generateIndexSitemap: false,
     changefreq: 'daily',
