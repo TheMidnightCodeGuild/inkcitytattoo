@@ -129,17 +129,17 @@ const Index = () => {
 
               <div className="flex gap-4 flex-wrap">
                 <Link
-                  href="/enquire-now"
+                  href="/contactus"
                   className="bg-orange-500 px-6 py-3 rounded-lg font-medium"
                 >
                   Book Appointment
                 </Link>
 
                 <Link
-                  href="/contact"
+                  href="/services"
                   className="border border-white/40 px-6 py-3 rounded-lg"
                 >
-                  Contact Us
+                  Our Services
                 </Link>
               </div>
               <p className="text-gray-300 text-base mt-4">

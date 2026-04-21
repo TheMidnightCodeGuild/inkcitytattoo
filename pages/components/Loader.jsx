@@ -6,7 +6,7 @@ const Loader = () => {
 
   useEffect(() => {
     // Check if loader has been shown before
-    if (sessionStorage.getItem('loaderShown')) {
+    if (sessionStorage.getItem("loaderShown")) {
       setIsLoading(false);
       return;
     }
@@ -29,7 +29,7 @@ const Loader = () => {
       onComplete: () => {
         setIsLoading(false);
         // Set flag in sessionStorage
-        sessionStorage.setItem('loaderShown', 'true');
+        sessionStorage.setItem("loaderShown", "true");
       },
     });
   }, []);
@@ -46,7 +46,15 @@ const Loader = () => {
         <span>O</span>
         <span>M</span>
         <span>E</span>
-       
+        <span>T</span>
+        <span>O</span>
+        <span>I</span>
+        <span>N</span>
+        <span>K</span>
+        <span>C</span>
+        <span>I</span>
+        <span>T</span>
+        <span>Y</span>
       </div>
 
       <style jsx>{`
@@ -77,6 +85,7 @@ const Loader = () => {
           margin: 0 5px;
           color: #000000;
           font-family: "Quattrocento Sans", sans-serif;
+          font-size: clamp(20px, 4vw, 60px);
         }
         .loading-text span:nth-child(1) {
           filter: blur(0px);

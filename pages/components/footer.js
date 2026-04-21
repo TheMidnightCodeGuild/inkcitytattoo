@@ -6,9 +6,9 @@ import { FaWhatsapp, FaInstagram, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="fixed z-50 left-2 md:left-5 bottom-72 md:bottom-64 mx-2">
+      <section className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
         <a
-          className="flex justify-center flex-col-reverse items-center"
+          className="flex justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
           href="https://wa.me/919516362594"
@@ -17,7 +17,7 @@ const Footer = () => {
         </a>
 
         <a
-          className="flex justify-center flex-col-reverse items-center"
+          className="flex justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.instagram.com/ink_city_the_tattoo_studio/"
@@ -26,14 +26,14 @@ const Footer = () => {
         </a>
 
         <a
-          className="flex justify-center flex-col-reverse items-center"
+          className="flex justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
           href="https://youtube.com/@sahil_suryavanshi?si=IYGOcTNLBVoQxxQV"
         >
-          <FaYoutube className="w-10 h-10 md:w-12 md:h-12 bg-white text-red-500 rounded-full p-1.5 md:p-2 hover:scale-110 transition-transform duration-300 mb-2 shadow-lg border border-black" />
+          <FaYoutube className="w-10 h-10 md:w-12 md:h-12 bg-white text-red-500 rounded-full p-1.5 md:p-2 hover:scale-110 transition-transform duration-300 shadow-lg border border-black" />
         </a>
-      </div>
+      </section>
 
       <footer className="w-full pt-8 lg:pt-[40px] relative z-10 overflow-hidden bg-slate-800 border-t border-white ">
         <div className="w-full px-4 lg:w-[95%] xl:container lg:mx-16 mb-2">
