@@ -30,25 +30,46 @@ export default async function handler(req, res) {
   }
 
   try {
-    await runMiddleware(req, res, upload.single("image"));
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded." });
+    await runMiddleware(
+      req,
+      res,
+      upload.fields([
+        { name: "images", maxCount: 20 },
+        { name: "image", maxCount: 1 },
+      ]),
+    );
+
+    const files = [
+      ...((req.files && req.files.images) || []),
+      ...((req.files && req.files.image) || []),
+    ];
+
+    if (!files.length) {
+      return res.status(400).json({ error: "No files uploaded." });
     }
 
-    const file = req.file;
-    const imageRef = ref(storage, `images/${Date.now()}_${file.originalname}`);
+    const uploadedImages = [];
 
-    // Upload the image file buffer to Firebase Storage
-    const uploadResult = await uploadBytes(imageRef, file.buffer, {
-      contentType: file.mimetype,
-    });
+    for (const file of files) {
+      const fileName = `${Date.now()}_${file.originalname}`;
+      const imageRef = ref(storage, `images/${fileName}`);
 
-    // Get downloadable URL for the uploaded image
-    const downloadURL = await getDownloadURL(uploadResult.ref);
+      const uploadResult = await uploadBytes(imageRef, file.buffer, {
+        contentType: file.mimetype,
+      });
+      const downloadURL = await getDownloadURL(uploadResult.ref);
+      uploadedImages.push({
+        url: downloadURL,
+        storagePath: `images/${fileName}`,
+        fileName,
+      });
+    }
 
     res.status(200).json({
-      message: "Image uploaded successfully!",
-      imageUrl: downloadURL,
+      message: "Images uploaded successfully!",
+      imageUrl: uploadedImages[0]?.url || null,
+      imageUrls: uploadedImages.map((img) => img.url),
+      images: uploadedImages,
     });
   } catch (error) {
     res.status(500).json({ error: error.message || "Something went wrong!" });

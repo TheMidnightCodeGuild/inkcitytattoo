@@ -24,7 +24,7 @@ const CATEGORIES = [
 
 const UploadImageToCategory = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFiles, setSelectedFiles] = useState([]);
   const [status, setStatus] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [categoryImages, setCategoryImages] = useState([]);
@@ -57,27 +57,27 @@ const UploadImageToCategory = () => {
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
     setStatus("");
-    setSelectedFile(null);
+    setSelectedFiles([]);
     setCategoryImages([]);
     fetchCategoryImages(category);
   };
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+    setSelectedFiles(Array.from(e.target.files || []));
     setStatus("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!selectedFile || !selectedCategory) {
-      setStatus("Please select a category and an image file.");
+    if (!selectedFiles.length || !selectedCategory) {
+      setStatus("Please select a category and one or more image files.");
       return;
     }
     setIsUploading(true);
     setStatus("");
     try {
       const formData = new FormData();
-      formData.append("image", selectedFile);
+      selectedFiles.forEach((file) => formData.append("images", file));
       formData.append("category", selectedCategory);
 
       const res = await fetch("/api/categories/addImage", {
@@ -88,8 +88,9 @@ const UploadImageToCategory = () => {
       const data = await res.json().catch(() => ({}));
 
       if (res.ok) {
-        setStatus("Image uploaded successfully!");
-        setSelectedFile(null);
+        const count = data?.uploadedCount || selectedFiles.length;
+        setStatus(`${count} image(s) uploaded successfully!`);
+        setSelectedFiles([]);
         await fetchCategoryImages(selectedCategory);
       } else {
         const message = [data?.error, data?.details, data?.code]
@@ -154,6 +155,7 @@ const UploadImageToCategory = () => {
                 setSelectedCategory(null);
                 setCategoryImages([]);
                 setStatus("");
+                setSelectedFiles([]);
               }}
               className="px-3 py-1 rounded bg-gray-200 text-gray-700 hover:bg-gray-300 text-xs font-semibold"
             >
@@ -173,15 +175,21 @@ const UploadImageToCategory = () => {
               accept="image/*"
               onChange={handleFileChange}
               className="border rounded px-3 py-2 w-full sm:w-auto"
+              multiple
             />
             <button
               type="submit"
-              disabled={isUploading || !selectedFile}
+              disabled={isUploading || !selectedFiles.length}
               className="px-6 py-2 rounded bg-blue-700 hover:bg-blue-900 text-white font-semibold disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto"
             >
-              {isUploading ? "Uploading..." : "Upload Image"}
+              {isUploading ? "Uploading..." : "Upload Images"}
             </button>
           </form>
+          {selectedFiles.length > 0 && (
+            <p className="text-sm text-gray-600 -mt-2">
+              {selectedFiles.length} image(s) selected
+            </p>
+          )}
 
           <div className="mt-6">
             <h3 className="text-base font-bold text-gray-800 mb-3">

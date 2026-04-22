@@ -8,16 +8,20 @@ export default async function handler(req, res) {
   }
 
   try {
-    const data = req.body;
+    const data = req.body || {};
+    const name = data.name?.toString().trim();
+    const email = data.email?.toString().trim();
+    const message = data.message?.toString().trim();
+    const mobile = (data.mobile || data.phone || "").toString().trim();
 
     // Validate required fields
-    if (!data.name || !data.email || !data.message) {
+    if (!name || !email || !message) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
+    if (!emailRegex.test(email)) {
       return res.status(400).json({ error: "Invalid email format" });
     }
 
@@ -33,14 +37,14 @@ export default async function handler(req, res) {
     const mailOptions = {
       from: process.env.EMAIL_USERNAME,
       to: "inkcitythetattoostudio22@gmail.com",
-      subject: `New Enquiry from ${data.name}!`,
+      subject: `New Enquiry from ${name}!`,
       html: `
         <h2>You have received a new enquiry</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Mobile:</strong> ${data.mobile || 'Not provided'}</p>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Mobile:</strong> ${mobile || "Not provided"}</p>
         <p><strong>Message:</strong></p>
-        <p>${data.message}</p>
+        <p>${message}</p>
         <p><em>Sent on: ${new Date().toLocaleString()}</em></p>
       `
     };
@@ -50,7 +54,11 @@ export default async function handler(req, res) {
     // Save to Firebase with timestamp
     const contactCollection = collection(db, 'contact');
     const docRef = await addDoc(contactCollection, {
-      ...data,
+      name,
+      email,
+      mobile,
+      phone: mobile,
+      message,
       timestamp: new Date().toISOString()
     });
 
