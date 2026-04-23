@@ -6,47 +6,52 @@ const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 const ACCEPTED_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp"];
 
 export default function UploadImages() {
-  const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null);
+  const [files, setFiles] = useState([]);
+  const [previews, setPreviews] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [uploadedUrl, setUploadedUrl] = useState(null);
+  const [uploadedUrls, setUploadedUrls] = useState([]);
   const [error, setError] = useState(null);
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files?.[0];
+    const selectedFiles = Array.from(e.target.files || []);
+    previews.forEach((url) => URL.revokeObjectURL(url));
     setError(null);
-    setUploadedUrl(null);
+    setUploadedUrls([]);
 
-    if (!selectedFile) {
-      setFile(null);
-      setPreview(null);
+    if (!selectedFiles.length) {
+      setFiles([]);
+      setPreviews([]);
       return;
     }
 
-    if (!ACCEPTED_TYPES.includes(selectedFile.type)) {
-      setError("Please select a valid image (JPEG, PNG, GIF, or WebP).");
-      setFile(null);
-      setPreview(null);
+    const invalidType = selectedFiles.some(
+      (selectedFile) => !ACCEPTED_TYPES.includes(selectedFile.type),
+    );
+    if (invalidType) {
+      setError("Please select valid images (JPEG, PNG, GIF, or WebP).");
+      setFiles([]);
+      setPreviews([]);
       return;
     }
 
-    if (selectedFile.size > MAX_FILE_SIZE) {
-      setError("File size must be less than 10MB.");
-      setFile(null);
-      setPreview(null);
+    const invalidSize = selectedFiles.some(
+      (selectedFile) => selectedFile.size > MAX_FILE_SIZE,
+    );
+    if (invalidSize) {
+      setError("Each file size must be less than 10MB.");
+      setFiles([]);
+      setPreviews([]);
       return;
     }
 
-    setFile(selectedFile);
-    const reader = new FileReader();
-    reader.onloadend = () => setPreview(reader.result);
-    reader.readAsDataURL(selectedFile);
+    setFiles(selectedFiles);
+    setPreviews(selectedFiles.map((selectedFile) => URL.createObjectURL(selectedFile)));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!file) {
-      setError("Please select an image first.");
+    if (!files.length) {
+      setError("Please select at least one image first.");
       return;
     }
 
@@ -55,7 +60,7 @@ export default function UploadImages() {
 
     try {
       const formData = new FormData();
-      formData.append("image", file);
+      files.forEach((file) => formData.append("images", file));
 
       const res = await fetch("/api/images/addImages", {
         method: "POST",
@@ -77,9 +82,10 @@ export default function UploadImages() {
         throw new Error(data.error || "Upload failed.");
       }
 
-      setUploadedUrl(data.imageUrl);
-      setFile(null);
-      setPreview(null);
+      setUploadedUrls(data.imageUrls || (data.imageUrl ? [data.imageUrl] : []));
+      previews.forEach((url) => URL.revokeObjectURL(url));
+      setFiles([]);
+      setPreviews([]);
       e.target.reset();
     } catch (err) {
       setError(err.message || "Something went wrong.");
@@ -89,9 +95,10 @@ export default function UploadImages() {
   };
 
   const handleReset = () => {
-    setFile(null);
-    setPreview(null);
-    setUploadedUrl(null);
+    previews.forEach((url) => URL.revokeObjectURL(url));
+    setFiles([]);
+    setPreviews([]);
+    setUploadedUrls([]);
     setError(null);
   };
 
@@ -105,23 +112,29 @@ export default function UploadImages() {
         <div className="border-2 border-dashed border-gray-300 rounded-xl p-5 sm:p-8 text-center hover:border-indigo-400 transition-colors">
           <input
             type="file"
-            name="image"
+            name="images"
             accept="image/jpeg,image/png,image/gif,image/webp"
             onChange={handleFileChange}
             disabled={uploading}
             className="hidden"
             id="image-upload"
+            multiple
           />
           <label
             htmlFor="image-upload"
             className="cursor-pointer block"
           >
-            {preview ? (
-              <img
-                src={preview}
-                alt="Preview"
-                className="max-h-48 mx-auto rounded-lg object-contain"
-              />
+            {previews.length ? (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {previews.map((preview, index) => (
+                  <img
+                    key={`${preview}-${index}`}
+                    src={preview}
+                    alt={`Preview ${index + 1}`}
+                    className="h-24 w-full rounded-lg object-cover"
+                  />
+                ))}
+              </div>
             ) : (
               <div className="text-gray-500">
                 <svg
@@ -137,14 +150,18 @@ export default function UploadImages() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <p className="mt-2 text-sm">Click to select an image</p>
+                <p className="mt-2 text-sm">Click to select one or more images</p>
                 <p className="text-xs text-gray-400 mt-1">
-                  JPEG, PNG, GIF or WebP (max 10MB)
+                  JPEG, PNG, GIF or WebP (max 10MB each)
                 </p>
               </div>
             )}
           </label>
         </div>
+
+        {files.length > 0 && (
+          <p className="text-sm text-gray-600">{files.length} image(s) selected</p>
+        )}
 
         {error && (
           <div className="p-3 rounded-lg bg-red-50 text-red-600 text-sm">
@@ -152,25 +169,27 @@ export default function UploadImages() {
           </div>
         )}
 
-        {uploadedUrl && (
+        {uploadedUrls.length > 0 && (
           <div className="space-y-2">
             <p className="text-sm text-green-600 font-medium">
-              Image uploaded successfully!
+              {uploadedUrls.length} image(s) uploaded successfully!
             </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-              <img
-                src={uploadedUrl}
-                alt="Uploaded"
-                className="h-20 w-20 rounded-lg object-cover border border-gray-200"
-              />
-              <a
-                href={uploadedUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-indigo-600 hover:underline text-sm truncate max-w-full sm:max-w-[200px]"
-              >
-                View image
-              </a>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {uploadedUrls.map((url, index) => (
+                <a
+                  key={`${url}-${index}`}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    src={url}
+                    alt={`Uploaded ${index + 1}`}
+                    className="h-20 w-full rounded-lg object-cover border border-gray-200"
+                  />
+                </a>
+              ))}
             </div>
           </div>
         )}
@@ -178,10 +197,10 @@ export default function UploadImages() {
         <div className="flex flex-col sm:flex-row gap-3">
           <button
             type="submit"
-            disabled={!file || uploading}
+            disabled={!files.length || uploading}
             className="flex-1 h-12 text-white text-base font-semibold rounded-full transition-all duration-700 hover:bg-indigo-800 bg-indigo-600 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {uploading ? "Uploading..." : "Upload"}
+            {uploading ? "Uploading..." : "Upload Images"}
           </button>
           <button
             type="button"

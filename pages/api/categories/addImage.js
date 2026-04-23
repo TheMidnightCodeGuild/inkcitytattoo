@@ -32,11 +32,22 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Accept single image file with field 'image'
-    await runMiddleware(req, res, upload.single("image"));
+    await runMiddleware(
+      req,
+      res,
+      upload.fields([
+        { name: "images", maxCount: 20 },
+        { name: "image", maxCount: 1 },
+      ]),
+    );
 
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded." });
+    const files = [
+      ...((req.files && req.files.images) || []),
+      ...((req.files && req.files.image) || []),
+    ];
+
+    if (!files.length) {
+      return res.status(400).json({ error: "No files uploaded." });
     }
 
     // Category name should be provided (in body or query)
@@ -54,43 +65,55 @@ export default async function handler(req, res) {
       .trim()
       .replace(/[^a-zA-Z0-9_\-]/g, "_");
 
-    const file = req.file;
-    const fileName = `${Date.now()}_${file.originalname}`;
-    // Compose directory path in Firebase: categories/{category}/filename.jpg
-    const categoryImageRef = ref(storage, `categories/${category}/${fileName}`);
-    // Also add the same image to 'images/' directory (flat)
-    const globalImageRef = ref(storage, `images/${fileName}`);
+    const uploadedImages = [];
 
-    // Upload to categories/{category}/
-    const categoryUploadResult = await uploadBytes(
-      categoryImageRef,
-      file.buffer,
-      {
+    for (const file of files) {
+      const fileName = `${Date.now()}_${file.originalname}`;
+      // Compose directory path in Firebase: categories/{category}/filename.jpg
+      const categoryImageRef = ref(storage, `categories/${category}/${fileName}`);
+      // Also add the same image to 'images/' directory (flat)
+      const globalImageRef = ref(storage, `images/${fileName}`);
+
+      // Upload to categories/{category}/
+      const categoryUploadResult = await uploadBytes(
+        categoryImageRef,
+        file.buffer,
+        {
+          contentType: file.mimetype,
+        },
+      );
+      // Get public URL for category location
+      const categoryDownloadURL = await getDownloadURL(categoryUploadResult.ref);
+
+      // Upload to images/
+      const globalUploadResult = await uploadBytes(globalImageRef, file.buffer, {
         contentType: file.mimetype,
-      },
-    );
-    // Get public URL for category location
-    const categoryDownloadURL = await getDownloadURL(categoryUploadResult.ref);
+      });
+      // Get public URL for global location
+      const globalDownloadURL = await getDownloadURL(globalUploadResult.ref);
 
-    // Upload to images/
-    const globalUploadResult = await uploadBytes(globalImageRef, file.buffer, {
-      contentType: file.mimetype,
-    });
-    // Get public URL for global location
-    const globalDownloadURL = await getDownloadURL(globalUploadResult.ref);
+      uploadedImages.push({
+        fileName,
+        categoryImage: {
+          url: categoryDownloadURL,
+          storagePath: `categories/${category}/${fileName}`,
+        },
+        globalImage: {
+          url: globalDownloadURL,
+          storagePath: `images/${fileName}`,
+        },
+      });
+    }
 
     res.status(200).json({
-      message: "Image uploaded successfully!",
-      categoryImage: {
-        url: categoryDownloadURL,
-        storagePath: `categories/${category}/${fileName}`,
-      },
-      globalImage: {
-        url: globalDownloadURL,
-        storagePath: `images/${fileName}`,
-      },
+      message: "Images uploaded successfully!",
       category,
-      fileName,
+      uploadedCount: uploadedImages.length,
+      images: uploadedImages,
+      // Backward compatibility for older clients expecting single item
+      categoryImage: uploadedImages[0]?.categoryImage || null,
+      globalImage: uploadedImages[0]?.globalImage || null,
+      fileName: uploadedImages[0]?.fileName || null,
     });
   } catch (error) {
     const details = error?.message || "Unknown upload error";

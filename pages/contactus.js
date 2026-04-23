@@ -26,7 +26,7 @@ const Book = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch('/api/sendEmail', {
+      const response = await fetch('/api/forms/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,6 +35,7 @@ const Book = () => {
           name: formData.name,
           email: formData.email,
           mobile: formData.phone,
+          phone: formData.phone,
           message: formData.message
         }),
       });
