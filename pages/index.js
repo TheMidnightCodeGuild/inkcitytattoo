@@ -97,6 +97,8 @@ const Index = () => {
             }),
           }}
         />
+    <link rel="icon" href="/images/favicon.png" type="image/png" />
+
       </Head>
       <Loader />
       <Header />
@@ -170,7 +172,7 @@ const Index = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002D62] text-center uppercase">
                 About Ink City Tattoo Studio, Ujjain
               </h2>
-              <div className="w-20 md:w-24 h-1 bg-[#E69500] mx-auto"></div>
+              <div className="w-20 md:w-24 h-1 bg-theme1 mx-auto"></div>
               <p className="text-base md:text-lg text-center md:text-left">
                 Welcome to Ink City, where artistry meets passion in the heart
                 of Ujjain. With over a decade of experience in the tattoo
@@ -278,7 +280,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-screen px-4 sm:px-8 md:px-20 py-12 sm:py-16 md:py-20 bg-[#F97316] border-[10px] border-white rounded-3xl">
+      <section className="min-h-screen px-4 sm:px-8 md:px-20 py-12 sm:py-16 md:py-20 bg-theme2 border-[10px] border-white rounded-3xl">
         <div className="lg:max-w-[1300px] mx-auto mt-20 sm:mt-0">
           <h2 className="text-[1.8rem] sm:text-3xl md:text-5xl font-bold text-white uppercase">
             Masterpieces in Ink
@@ -286,7 +288,7 @@ const Index = () => {
           <p className="text-gray-100 text-left sm:text-left text-base sm:text-lg mb-4 sm:mb-6">
             Explore Our Collection of Stunning Tattoo Artistry
           </p>
-          <div className="w-20 md:w-24 h-1.5 bg-[#F7A600] mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
+          <div className="w-20 md:w-24 h-1.5 bg-theme1 mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
           {images.length > 0 ? (
             <Swiper
               modules={[Autoplay]}
@@ -368,7 +370,7 @@ const Index = () => {
                   creative sanctuary in Ujjain where your ideas transform into
                   stunning works of art.
                 </p>
-                <div className="w-20 md:w-24 h-1 bg-[#E69500] mx-auto mt-10 sm:mt-5"></div>
+                <div className="w-20 md:w-24 h-1 bg-theme1 mx-auto mt-10 sm:mt-5"></div>
               </div>
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
                 <div className="w-12 h-12 flex-shrink-0 relative">
@@ -435,7 +437,7 @@ const Index = () => {
       <section className="px-4 sm:px-8 md:px-20 py-14 sm:py-16 md:py-20 bg-gradient-to-b from-[#f8fbff] to-white">
         <div className="lg:max-w-[1300px] mx-auto">
           <div className="text-center sm:text-left">
-            <p className="uppercase tracking-[0.2rem] text-sm font-semibold text-[#E69500] mb-2">
+            <p className="uppercase tracking-[0.2rem] text-sm font-semibold text-theme1 mb-2">
               Beyond Ink
             </p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002D62] uppercase">
@@ -445,7 +447,7 @@ const Index = () => {
               Expert care beyond tattoos for every stage of your journey—now in
               Ujjain.
             </p>
-            <div className="w-20 md:w-24 h-1 bg-[#E69500] mb-8 sm:mb-10 mx-auto sm:mx-0"></div>
+            <div className="w-20 md:w-24 h-1 bg-theme1 mb-8 sm:mb-10 mx-auto sm:mx-0"></div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -471,7 +473,7 @@ const Index = () => {
                 key={service.title}
                 className="group bg-white border border-[#002D62]/15 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-10 h-10 rounded-full bg-[#002D62] text-white flex items-center justify-center text-sm font-bold mb-4 group-hover:bg-[#E69500] transition-colors duration-300">
+                <div className="w-10 h-10 rounded-full bg-[#002D62] text-white flex items-center justify-center text-sm font-bold mb-4 group-hover:bg-theme1 transition-colors duration-300">
                   {index + 1}
                 </div>
                 <h3 className="text-xl font-bold text-[#002D62] mb-3 group-hover:text-[#001f45] transition-colors duration-300">
@@ -480,7 +482,7 @@ const Index = () => {
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   {service.desc}
                 </p>
-                <div className="w-0 group-hover:w-full h-[2px] bg-[#E69500] mt-4 transition-all duration-300"></div>
+                <div className="w-0 group-hover:w-full h-[2px] bg-theme1 mt-4 transition-all duration-300"></div>
               </div>
             ))}
           </div>
@@ -492,7 +494,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-[#F97316] flex justify-center items-center min-h-screen px-4 py-10 border-[10px] rounded-3xl  border-white">
+      <section className="bg-theme2 flex justify-center items-center min-h-screen px-4 py-10 border-[10px] rounded-3xl  border-white">
         <div className="lg:max-w-[1300px] w-full text-left">
           <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-white mb-8">
             What Our Clients Say
@@ -500,7 +502,7 @@ const Index = () => {
           <p className="text-lg sm:text-xl text-gray-200 mb-5">
             Hear from those who trusted us with their ink stories in Ujjain!
           </p>
-          <div className="w-20 md:w-24 h-1.5 bg-[#F7A600] mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
+          <div className="w-20 md:w-24 h-1.5 bg-theme1 mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
@@ -540,7 +542,7 @@ const Index = () => {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <span className="inline-block font-bold bg-white text-[#F97316] px-6 py-1 rounded shadow">
+            <span className="inline-block font-bold bg-white text-theme2 px-6 py-1 rounded shadow">
               Visit Us in Ujjain: Ink City Tattoo Studio
             </span>
           </div>

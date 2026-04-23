@@ -159,7 +159,7 @@ const Book = () => {
                 </div>
               </div>
               <div className="bg-gray-50 p-4 sm:p-6 md:p-8 lg:p-11 lg:rounded-r-2xl rounded-2xl">
-                <h2 className="text-[#4B9CD3] font-manrope text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-6 sm:mb-8 md:mb-11">Send Us A Message</h2>
+                <h2 className="text-theme2 font-manrope text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight mb-6 sm:mb-8 md:mb-11">Send Us A Message</h2>
                 <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8 md:space-y-10">
 
                   <input
@@ -200,7 +200,7 @@ const Book = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full h-10 sm:h-12 text-white text-sm sm:text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-[#E69500] bg-[#4B9CD3] shadow-sm flex items-center justify-center"
+                    className="w-full h-10 sm:h-12 text-white text-sm sm:text-base font-semibold leading-6 rounded-full transition-all duration-700 hover:bg-[#E69500] bg-theme2 shadow-sm flex items-center justify-center"
                   >
                     {isLoading ? (
                       <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
