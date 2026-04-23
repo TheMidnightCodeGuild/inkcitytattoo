@@ -101,55 +101,59 @@ const Index = () => {
       <Loader />
       <Header />
       {/* home section */}
-      <section className="relative overflow-hidden">
-        <div className="relative min-h-[80vh] lg:min-h-[100vh] lg:mt-20 mt-10">
-          {/* BACKGROUND IMAGE */}
-          <Image
-            src="/images/home-banner2.png"
-            alt="Ink City Tattoo Studio Ujjain home banner showing creative custom tattoos"
-            fill
-            priority
-            className="object-cover object-center"
-          />
 
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
+      <section
+        className="relative h-[70vh] lg:mt-0 mt-12 lg:h-[100vh] bg-cover bg-center bg-[url('/images/home-mobile.png')] lg:bg-[url('/images/home-banner.png')]"
+      >
+        {/* <div className="absolute inset-0 bg-black/60"></div> */}
 
-          {/* CONTENT */}
-          <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-6 ">
-            <div className="max-w-xl text-white text-left mt-44">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-                Ink Your Story with <br />
-                <span className="text-orange-500">Precision & Artistry</span>
+        <div className="relative z-10 h-full flex items-center">
+          <div className="lg:max-w-[1300px] mx-auto w-full px-4">
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-5 py-20 lg:py-0">
+              <p className="inline-block text-[10px] sm:text-xs uppercase tracking-[0.4em] py-1.5 px-4 rounded-full text-white bg-white/30 backdrop-blur-md border border-white/40 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+                Since 2015
+              </p>
+
+              <h1 className="font-urbanist text-3xl lg:text-6xl lg:leading-[60px] font-bold text-white">
+                Ink Your Story with <br className="hidden sm:block" />
+                <span className="text-theme2 font-bold">
+                  Precision & Artistry
+                </span>
               </h1>
 
-              <p className="text-gray-300 mb-6">
-                Custom Tattoo Designs Crafted Just for You in Ujjain
-              </p>
-
-              <div className="flex gap-4 flex-wrap">
+              <div className="max-w-3xl">
+                <p className="text-sm sm:text-base text-white italic leading-relaxed text-center lg:text-left">
+                  Custom Tattoo Designs Crafted Just for You in Ujjain
+                </p>
+            
                 <Link
                   href="/contactus"
-                  className="bg-orange-500 px-6 py-3 rounded-lg font-medium"
+                  className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-sm text-white font-medium text-base lg:px-6 lg:py-3 py-1 px-2 transition-colors duration-200 w-fit sm:w-fit justify-center border border-gray-50 mt-2"
                 >
-                  Book Appointment
+                  Contact Now
+                  <span className="ml-2 w-8 h-8 rounded-full bg-theme2 flex items-center justify-center transition-colors duration-200">
+                    <svg
+                      className="w-5 h-5 text-theme1 transition-colors duration-200"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <path
+                        d="M6 18L18 6M18 6H10M18 6V14"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                 </Link>
-
-                <Link
-                  href="/services"
-                  className="border border-white/40 px-6 py-3 rounded-lg"
-                >
-                  Our Services
-                </Link>
+           
               </div>
-              <p className="text-gray-300 text-base mt-4">
-                <span className="font-bold">Location:</span> Ujjain, Madhya
-                Pradesh, India
-              </p>
             </div>
           </div>
         </div>
       </section>
+
       <section className="min-h-screen px-4 sm:px-8 md:px-20 py-24 md:py-20 bg-[#ffffff] flex items-center justify-center">
         <div className="lg:max-w-[1300px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
