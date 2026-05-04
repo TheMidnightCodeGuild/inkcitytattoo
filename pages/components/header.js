@@ -46,6 +46,7 @@ const Header = () => {
               src="/images/logowhite.png"
               alt="Ink City Tattoo Logo"
               fill
+              sizes="120px"
               className="object-contain"
               priority
             />
@@ -143,7 +144,7 @@ const Header = () => {
         <div className="flex flex-col h-full p-8">
           <div className="flex justify-between items-center mb-12">
             <Link href="/" onClick={() => setIsMenuOpen(false)} className="relative w-[100px] h-[50px]">
-              <Image src="/images/logowhite.png" alt="Logo" fill className="object-contain" />
+              <Image src="/images/logowhite.png" alt="Logo" fill sizes="100px" className="object-contain" />
             </Link>
             <button onClick={() => setIsMenuOpen(false)} className="text-white/70 hover:text-white">
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

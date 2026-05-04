@@ -89,6 +89,7 @@ const Services = () => {
             src="/images/servicesbanner.png"
             alt="Services Banner"
             fill
+            sizes="100vw"
             className="object-cover"
             priority
           />
@@ -106,6 +107,7 @@ const Services = () => {
                   src={service.image}
                   alt={service.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   className="object-cover rounded-2xl"
                 />
               </div>

@@ -166,6 +166,7 @@ const Index = () => {
                 src="/images/img1.jpg"
                 alt="Inside Ink City Tattoo Studio Ujjain"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                 className="w-full h-full object-cover rounded-[50px] md:rounded-[100px] border-[10px] border-[#002D62] scale-[0.90]"
                 priority
               />

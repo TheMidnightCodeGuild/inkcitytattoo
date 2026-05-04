@@ -54,6 +54,7 @@ const Blog = () => {
             src="/images/img30.jpg"
             alt="Blog Banner"
             fill
+            sizes="100vw"
             className="object-cover brightness-50"
           />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -71,6 +72,7 @@ const Blog = () => {
                   src="/images/img31.jpg"
                   alt="Blog 1"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -98,6 +100,7 @@ const Blog = () => {
                   src="/images/img14.jpg"
                   alt="Blog 2"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -125,6 +128,7 @@ const Blog = () => {
                   src="/images/img16.jpg"
                   alt="Blog 3"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -154,7 +158,7 @@ const Blog = () => {
             {Object.entries(seoBlogs).map(([key, blog]) => (
               <div key={key} className="bg-white rounded-lg overflow-hidden border-2 border-black">
                 <div className="relative h-64">
-                  <Image src={blog.image} alt={blog.title} fill className="object-cover" />
+                  <Image src={blog.image} alt={blog.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-black">{blog.title}</h3>
