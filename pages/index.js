@@ -13,6 +13,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 const Index = () => {
   const [firebaseImages, setFirebaseImages] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const setVH = () => {
@@ -38,25 +39,33 @@ const Index = () => {
     };
 
     const fetchFirebaseImages = async () => {
+      setLoading(true);
       try {
         const response = await fetch("/api/images/viewAllImages");
 
         if (!response.ok) {
+          console.error(`API Error: ${response.status}`);
           throw new Error(`Failed to fetch images: ${response.status}`);
         }
 
         const data = await response.json();
+        console.log("Gallery API Response:", data);
 
         if (isMounted && Array.isArray(data?.images)) {
+          console.log(`Fetched ${data.images.length} images for the gallery.`);
           const sortedFirebaseImages = [...data.images].sort((a, b) => {
             const timestampA = getTimestampFromFirebaseUrl(a);
             const timestampB = getTimestampFromFirebaseUrl(b);
             return timestampB - timestampA;
           });
           setFirebaseImages(sortedFirebaseImages);
+        } else {
+          console.warn("No images array found in API response:", data);
         }
       } catch (error) {
         console.error("Error fetching Firebase images:", error);
+      } finally {
+        if (isMounted) setLoading(false);
       }
     };
 
@@ -282,7 +291,12 @@ const Index = () => {
             Explore Our Collection of Stunning Tattoo Artistry
           </p>
           <div className="w-20 md:w-24 h-1.5 bg-theme1 mx-auto sm:mx-0 mb-8 sm:mb-12"></div>
-          {swiperImages.length > 0 ? (
+          {loading ? (
+            <div className="text-center text-white mt-12">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-white border-t-transparent mb-4"></div>
+              <p>Loading masterpieces...</p>
+            </div>
+          ) : swiperImages.length > 0 ? (
             <Swiper
               modules={[Autoplay]}
               spaceBetween={15}
@@ -319,21 +333,22 @@ const Index = () => {
               {swiperImages.map((image, index) => (
                 <SwiperSlide key={`gallery-image-${index}`}>
                   <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[620px] rounded-lg overflow-hidden group">
-                    <Image
-                      src={image}
-                      alt={`Tattoo Gallery Image ${index + 1} - Custom tattoo work by Ink City Ujjain`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover rounded-[15px] sm:rounded-[30px]"
-                      priority={index <= 2}
-                    />
+                      <Image
+                        src={image}
+                        alt={`Tattoo Gallery Image ${index + 1} - Custom tattoo work by Ink City Ujjain`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover rounded-[15px] sm:rounded-[30px]"
+                        priority={index <= 2}
+                      />
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
           ) : (
             <div className="text-center text-white mt-12">
-              <p>No gallery images found.</p>
+              <p>No gallery images found in the storage bucket.</p>
+              <p className="text-sm text-gray-300 mt-2">Please ensure images are uploaded to the &apos;images&apos; folder in Firebase Storage.</p>
             </div>
           )}
         </div>
