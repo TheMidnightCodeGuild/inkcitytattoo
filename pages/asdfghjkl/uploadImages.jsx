@@ -176,19 +176,21 @@ export default function UploadImages() {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {uploadedUrls.map((url, index) => (
-                <a
+                <Link
                   key={`${url}-${index}`}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <img
+                  <Image
                     src={url}
                     alt={`Uploaded ${index + 1}`}
                     className="h-20 w-full rounded-lg object-cover border border-gray-200"
+                    width={100}
+                    height={100}
                   />
-                </a>
+                </Link>
               ))}
             </div>
           </div>

@@ -273,8 +273,8 @@ const Index = () => {
           <div className="prem-reveal-r order-1 lg:order-2 flex justify-center lg:justify-end prem-in">
             <div>
               <Image
-                className="w-[600px] h-[600px]"
-                src="/images/img4.jpg"
+                className="w-[600px] h-[600px] object-cover"
+                src="/images/img4.jpeg"
                 alt="Tattoo artist working in Ink City Studio Ujjain"
                 width={600}
                 height={600}

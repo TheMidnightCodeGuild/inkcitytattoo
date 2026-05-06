@@ -13,10 +13,7 @@ export default {
       xl: "1400px",
     },
     extend: {
-      fontFamily: {
-        dm: ["DM Sans", "sans-serif"],
-        lexend: ["Lexend", "sans-serif"],
-      },
+     
       colors: {
         theme1: "#3F4064",
         theme2: "#6FCF97",

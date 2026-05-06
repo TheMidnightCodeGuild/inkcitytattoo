@@ -133,14 +133,14 @@ export default function ViewAllImages() {
               className="w-full h-40 object-cover"
             />
             <div className="p-4 flex flex-col gap-3">
-              <a
+              <Link   
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-xs text-gray-500 break-all hover:underline"
               >
                 {url}
-              </a>
+              </Link>
               <button
                 type="button"
                 onClick={() => handleDelete(url)}

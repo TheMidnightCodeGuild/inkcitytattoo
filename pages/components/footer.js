@@ -7,32 +7,32 @@ const Footer = () => {
   return (
     <>
       <section className="fixed right-0 top-1/2 -translate-y-1/2 z-50">
-        <a
+        <Link
           className="flex justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
           href="https://wa.me/919516362594"
         >
           <FaWhatsapp className="w-10 h-10 md:w-12 md:h-12 bg-white text-[#25D366] rounded-full p-1.5 md:p-2 hover:scale-110 transition-transform duration-300 mb-2 shadow-lg border border-black" />
-        </a>
+        </Link>
 
-        <a
+        <Link
           className="flex justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.instagram.com/ink_city_the_tattoo_studio/"
         >
           <FaInstagram className="w-10 h-10 md:w-12 md:h-12 bg-white text-pink-500 rounded-full p-1.5 md:p-2 hover:scale-110 transition-transform duration-300 mb-2 shadow-lg border border-black" />
-        </a>
+        </Link>
 
-        <a
+        <Link
           className="flex justify-center items-center"
           target="_blank"
           rel="noopener noreferrer"
           href="https://youtube.com/@sahil_suryavanshi?si=IYGOcTNLBVoQxxQV"
         >
           <FaYoutube className="w-10 h-10 md:w-12 md:h-12 bg-white text-red-500 rounded-full p-1.5 md:p-2 hover:scale-110 transition-transform duration-300 shadow-lg border border-black" />
-        </a>
+        </Link>
       </section>
 
       <footer className="w-full pt-8 lg:pt-[40px] relative z-10 overflow-hidden bg-slate-800 border-t border-white ">
@@ -49,7 +49,7 @@ const Footer = () => {
                       alt="Logo"
                       width={200}
                       height={50}
-                      className="w-[200px] h-[50px] object-cover"
+                      className="w-[200px] h-[100px] object-contain"
                     />
                   </Link>
                 </div>
@@ -81,7 +81,7 @@ const Footer = () => {
                 </div>
 
                 <div className="flex mb-10 mt-8 justify-start gap-4">
-                  <a
+                  <Link
                     href="https://youtube.com/@sahil_suryavanshi?si=IYGOcTNLBVoQxxQV"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -89,8 +89,8 @@ const Footer = () => {
                     className="transform hover:scale-110 transition-all duration-300"
                   >
                     <FaYoutube className="w-6 h-6 text-white hover:text-[#F7A600] transition-colors duration-300" />
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="https://www.instagram.com/ink_city_the_tattoo_studio/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -98,7 +98,7 @@ const Footer = () => {
                     className="transform hover:scale-110 transition-all duration-300"
                   >
                     <FaInstagram className="w-6 h-6 text-white hover:text-[#F7A600] transition-colors duration-300" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -251,7 +251,7 @@ const Footer = () => {
                   </h4>
                   <ul className="space-y-4">
                     <li>
-                      <a
+                      <Link
                         href="tel:09516362594"
                         className="flex items-center group hover:translate-x-1 transition-all duration-300"
                       >
@@ -269,10 +269,10 @@ const Footer = () => {
                             +919516362594
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="mailto:info@tattoo.com"
                         className="flex items-center group hover:translate-x-1 transition-all duration-300"
                       >
@@ -290,10 +290,10 @@ const Footer = () => {
                             inkcitythetattoostudio22@gmail.com
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
+                      <Link
                         href="https://goo.gl/maps"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -319,7 +319,7 @@ const Footer = () => {
                             Madhya Pradesh 456010
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -337,14 +337,14 @@ const Footer = () => {
             </p>
             <p className="text-white font-semibold text-base">
               Designed and Developed by{" "}
-              <a
+              <Link
                 href="https://www.noxalgo.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#F7A600] transition-colors duration-300"
               >
                 Noxalgo LLP
-              </a>
+              </Link>
             </p>
           </div>
         </div>
